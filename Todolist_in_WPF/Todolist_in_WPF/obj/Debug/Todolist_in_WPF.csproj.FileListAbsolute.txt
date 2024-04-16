@@ -1,0 +1,15 @@
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\bin\Debug\Todolist_in_WPF.exe.config
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\bin\Debug\Todolist_in_WPF.exe
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\bin\Debug\Todolist_in_WPF.pdb
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF.csproj.AssemblyReference.cache
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\MainWindow.g.cs
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\App.g.cs
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF_MarkupCompile.cache
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF_MarkupCompile.lref
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\MainWindow.baml
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF.g.resources
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF.Properties.Resources.resources
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF.csproj.GenerateResource.cache
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF.csproj.CoreCompileInputs.cache
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF.exe
+C:\Users\anton\OneDrive\Рабочий стол\projects\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF.pdb
