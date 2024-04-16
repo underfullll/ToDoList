@@ -55,15 +55,12 @@ namespace Todolist_in_WPF
         {
             TaskPanel.Visibility = TaskPanel.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
         }
+
         private void SaveTaskButton_Click(object sender, RoutedEventArgs e)
         {
-            ToDoListLibrary.Task newTask = new ToDoListLibrary.Task
-            {
-                Id = nextTaskId,
-                Title = TaskTitleTextBox.Text,
-                Description = TaskDescriptionTextBox.Text,
-                IsCompleted = false
-            };
+            string category = "Работа"; // Устанавливаем категорию "Работа" для примера
+
+            ToDoListLibrary.Task newTask = new ToDoListLibrary.Task(nextTaskId, TaskTitleTextBox.Text, TaskDescriptionTextBox.Text, false, category);
 
             // Добавляем новую задачу в коллекцию
             TasksCollection.Add(newTask);
@@ -76,6 +73,5 @@ namespace Todolist_in_WPF
 
             DockPanel.SetDock(TaskPanel, Dock.Bottom);
         }
-        
     }
 }

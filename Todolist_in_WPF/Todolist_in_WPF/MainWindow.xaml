@@ -26,11 +26,16 @@
     </Window.Foreground>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="400"/>
-            <RowDefinition/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <!-- Заголовок -->
+            <RowDefinition Height="*"/>
+            <!-- Основная часть -->
+            <RowDefinition Height="Auto"/>
+            <!-- Панель задач -->
+            <RowDefinition Height="Auto"/>
+            <!-- Нижняя панель инструментов -->
         </Grid.RowDefinitions>
+    <Grid/>
         <Grid x:Name="ToolBar" Grid.Row="0" MouseDown="ToolBar_MouseDown">
             <Polygon Fill="White" Opacity="0.3" Points="120,0,120,7,250,7,250,0"/>
 
@@ -97,39 +102,29 @@
                 </Image>
             </StackPanel>
         </Grid>
-        <Grid Name="LowerToolBar" Grid.Row="3">
-            <!--Задачи-->
-            <Image x:Name="Tasks" Height="50" Width="50" HorizontalAlignment="Center" Margin="-50,0,0,0">
-                <Image.Style>
-                    <Style TargetType="{x:Type Image}">
-                        <Setter Property="Source" Value="/Source/Задания-1.png"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Source" Value="/Source/Задания-2.png"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Image.Style>
-            </Image>
-            <!--Календарь-->
-            <Image x:Name="Calendar" Height="50" Width="50" HorizontalAlignment="Center" Margin="50,0,0,0">
-                <Image.Style>
-                    <Style TargetType="{x:Type Image}">
-                        <Setter Property="Source" Value="/Source/Календарь-1.png"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Source" Value="/Source/Календарь-2.png"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Image.Style>
-            </Image>
+
+        <Grid Grid.Row="1">
+            <ListView x:Name="TaskListView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="50"/>
+                        <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="100"/>
+                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="100"/>
+                        <GridViewColumn Header="Is Completed" Width="123">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
 
         <Grid Grid.Row="2">
-            
-            <DockPanel Grid.Row="3" Background="#FF333131" >
-                <Button x:Name="ShowTaskPanelButton" Width="50" Height="50" Click="ShowTaskPanelButton_Click" BorderThickness="10,1,1,1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <DockPanel Background="#FF333131">
+                <Button x:Name="ShowTaskPanelButton" Width="50" Height="50" Margin="5" Click="ShowTaskPanelButton_Click" BorderThickness="10,1,1,1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Image x:Name="PlusImage" Source="/Source/Плюс-1.png"/>
@@ -150,23 +145,31 @@
             </DockPanel>
         </Grid>
 
-        <Grid Grid.Row="1">
-            <ListView x:Name="TaskListView" ItemsSource="{Binding Path=taskList.Tasks}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="50"/>
-                        <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="100"/>
-                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="100"/>
-                        <GridViewColumn Header="Is Completed" Width="123">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+        <Grid Grid.Row="3">
+            <Image x:Name="Tasks" Height="50" Width="50" HorizontalAlignment="Center" Margin="-50,0,0,0">
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="/Source/Задания-1.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Source" Value="/Source/Задания-2.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+            <Image x:Name="Calendar" Height="50" Width="50" HorizontalAlignment="Center" Margin="50,0,0,0">
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="/Source/Календарь-1.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Source" Value="/Source/Календарь-2.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
         </Grid>
     </Grid>
 </Window>

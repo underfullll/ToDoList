@@ -11,6 +11,15 @@ namespace ToDoListLibrary
     {
         public string Category { get; set; }
 
+        public Task(int id, string title, string description, bool isCompleted, string category)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            IsCompleted = isCompleted;
+            Category = category;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private int id;
