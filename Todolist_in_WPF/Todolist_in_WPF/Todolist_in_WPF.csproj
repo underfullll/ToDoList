@@ -104,5 +104,23 @@
     <Resource Include="Source\Свернуть-1.png" />
     <Resource Include="Source\Свернуть-2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Задания-1.png" />
+    <Resource Include="Source\Задания-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Календарь-1.png" />
+    <Resource Include="Source\Календарь-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Плюс-1.png" />
+    <Resource Include="Source\Плюс-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryToDoList\ToDoListLibrary.csproj">
+      <Project>{7b6be91a-1db7-4a07-886a-d81a688dfaf5}</Project>
+      <Name>ToDoListLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

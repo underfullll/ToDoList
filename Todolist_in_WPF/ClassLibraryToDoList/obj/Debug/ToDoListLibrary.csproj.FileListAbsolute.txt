@@ -1,0 +1,6 @@
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\ClassLibraryToDoList.dll
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\ClassLibraryToDoList.pdb
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\obj\Debug\ToDoListLibrary.csproj.AssemblyReference.cache
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\obj\Debug\ToDoListLibrary.csproj.CoreCompileInputs.cache
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\obj\Debug\ClassLibraryToDoList.dll
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\obj\Debug\ClassLibraryToDoList.pdb
