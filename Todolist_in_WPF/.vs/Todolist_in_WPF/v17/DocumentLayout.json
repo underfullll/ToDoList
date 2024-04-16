@@ -58,7 +58,7 @@
               "RelativeDocumentMoniker": "Todolist_in_WPF\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
               "RelativeToolTip": "Todolist_in_WPF\\MainWindow.xaml",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAmwHoAAAAPAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAqwCoAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-04-16T17:25:52.838Z",
               "EditorCaption": ""
@@ -73,8 +73,7 @@
               "RelativeToolTip": "Todolist_in_WPF\\MainWindow.xaml.cs",
               "ViewState": "AQIAADkAAAAAAAAAAAAYwEoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T16:31:03.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T16:31:03.926Z"
             },
             {
               "$type": "Document",
@@ -98,8 +97,7 @@
               "RelativeToolTip": "ClassLibraryToDoList\\Class\\Task.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T19:28:00.117Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T19:28:00.117Z"
             }
           ]
         }

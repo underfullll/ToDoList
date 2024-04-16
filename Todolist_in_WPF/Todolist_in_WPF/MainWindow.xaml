@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Todolist_in_WPF"
         mc:Ignorable="d"
-        Title="Todolist" Height="600" Width="380" ResizeMode="NoResize" WindowStyle="None">
+        Title="Todolist" Height="600" Width="380" WindowStyle="None">
 
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -37,10 +37,10 @@
         </Grid.RowDefinitions>
     <Grid/>
         <Grid x:Name="ToolBar" Grid.Row="0" MouseDown="ToolBar_MouseDown">
-            <Polygon Fill="White" Opacity="0.3" Points="120,0,120,7,250,7,250,0"/>
+            <Polygon Fill="White" Height="Auto"  Width="Auto" Opacity="0.3" Points="25,0,25,5,150,5,150,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
             <!--Стак панель для органов управления-->
-            <StackPanel Orientation="Horizontal" Margin="335,0,0,0" >
+            <StackPanel Height="Auto"  Width="Auto" Orientation="Horizontal"  HorizontalAlignment="Right" >
 
                 <!--Свернуть-->
                 <Image Name="MinButton" Height="20" Width="20" Margin="1,0,1,1" VerticalAlignment="Top" HorizontalAlignment="Right" MouseDown="MinButton_MouseDown">
@@ -72,7 +72,7 @@
             </StackPanel>
 
             <!--Стак панель для  классификации задач-->
-            <StackPanel Orientation="Horizontal" Margin="1">
+            <StackPanel Orientation="Horizontal" Margin="1" Height="Auto"  Width="Auto">
                 <!--Все-->
                 <Image Name="All" Height="30" Width="50" Margin="1,0,1,1" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <Image.Style>
