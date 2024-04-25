@@ -46,10 +46,10 @@
                 <Image Name="MinButton" Height="20" Width="20" Margin="1,0,1,1" VerticalAlignment="Top" HorizontalAlignment="Right" MouseDown="MinButton_MouseDown">
                     <Image.Style>
                         <Style TargetType="Image">
-                            <Setter Property="Source" Value="/Source/Свернуть-1.png"/>
+                            <Setter Property="Source" Value="/Source/Свернуть-2.png"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Source" Value="/Source/Свернуть-2.png"/>
+                                    <Setter Property="Source" Value="/Source/Свернуть-1.png"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -60,10 +60,10 @@
                 <Image x:Name="ExitButton" Height="20" Width="20" Margin="1,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" MouseDown="ExitButton_MouseDown">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
-                            <Setter Property="Source" Value="/Source/Закрыть-1.png"/>
+                            <Setter Property="Source" Value="/Source/Закрыть-2.png"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Source" Value="/Source/Закрыть-2.png"/>
+                                    <Setter Property="Source" Value="/Source/Закрыть-1.png"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -77,10 +77,10 @@
                 <Image Name="All" Height="30" Width="50" Margin="1,0,1,1" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <Image.Style>
                         <Style TargetType="Image">
-                            <Setter Property="Source" Value="/Source/Все-1.png"/>
+                            <Setter Property="Source" Value="/Source/Все-2.png"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Source" Value="/Source/Все-2.png"/>
+                                    <Setter Property="Source" Value="/Source/Все-1.png"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -91,10 +91,10 @@
                 <Image x:Name="Worck" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
-                            <Setter Property="Source" Value="/Source/Работа-1.png"/>
+                            <Setter Property="Source" Value="/Source/Работа-2.png"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Source" Value="/Source/Работа-2.png"/>
+                                    <Setter Property="Source" Value="/Source/Работа-1.png"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -127,10 +127,10 @@
                 <Button x:Name="ShowTaskPanelButton" Width="50" Height="50" Margin="5" Click="ShowTaskPanelButton_Click" BorderThickness="10,1,1,1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Image x:Name="PlusImage" Source="/Source/Плюс-1.png"/>
+                            <Image x:Name="PlusImage" Source="/Source/Плюс-2.png"/>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="PlusImage" Property="Source" Value="/Source/Плюс-2.png"/>
+                                    <Setter TargetName="PlusImage" Property="Source" Value="/Source/Плюс-1.png"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -149,10 +149,10 @@
             <Image x:Name="Tasks" Height="50" Width="50" HorizontalAlignment="Center" Margin="-50,0,0,0">
                 <Image.Style>
                     <Style TargetType="{x:Type Image}">
-                        <Setter Property="Source" Value="/Source/Задания-1.png"/>
+                        <Setter Property="Source" Value="/Source/Задания-2.png"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Source" Value="/Source/Задания-2.png"/>
+                                <Setter Property="Source" Value="/Source/Задания-1.png"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -161,10 +161,10 @@
             <Image x:Name="Calendar" Height="50" Width="50" HorizontalAlignment="Center" Margin="50,0,0,0">
                 <Image.Style>
                     <Style TargetType="{x:Type Image}">
-                        <Setter Property="Source" Value="/Source/Календарь-1.png"/>
+                        <Setter Property="Source" Value="/Source/Календарь-2.png"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Source" Value="/Source/Календарь-2.png"/>
+                                <Setter Property="Source" Value="/Source/Календарь-1.png"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
