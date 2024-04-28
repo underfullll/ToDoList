@@ -73,5 +73,15 @@ namespace Todolist_in_WPF
 
             DockPanel.SetDock(TaskPanel, Dock.Bottom);
         }
+        private void TaskListView_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            ToDoListLibrary.Task selectedTask = (ToDoListLibrary.Task)TaskListView.SelectedItem;
+
+            if (selectedTask != null)
+            {
+                EditTaskWindow editTaskWindow = new EditTaskWindow(selectedTask);
+                editTaskWindow.ShowDialog(); // Показать окно модально, чтобы вернуться к основному окну только после закрытия этого
+            }
+        }
     }
 }

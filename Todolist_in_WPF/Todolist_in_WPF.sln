@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todolist_in_WPF", "Todolist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListLibrary", "ClassLibraryToDoList\ToDoListLibrary.csproj", "{7B6BE91A-1DB7-4A07-886A-D81A688DFAF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BD", "BD\BD.csproj", "{626E73B2-4119-47FE-82BB-889FCD596711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7B6BE91A-1DB7-4A07-886A-D81A688DFAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B6BE91A-1DB7-4A07-886A-D81A688DFAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B6BE91A-1DB7-4A07-886A-D81A688DFAF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{626E73B2-4119-47FE-82BB-889FCD596711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{626E73B2-4119-47FE-82BB-889FCD596711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{626E73B2-4119-47FE-82BB-889FCD596711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{626E73B2-4119-47FE-82BB-889FCD596711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
