@@ -17,71 +17,42 @@ using ToDoListLibrary;
 
 namespace Todolist_in_WPF
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<ToDoListLibrary.Task> TasksCollection { get; set; }
-        private TaskList taskList;
-        private int nextTaskId = 1;
 
         public MainWindow()
         {
             InitializeComponent();
-            TasksCollection = new ObservableCollection<ToDoListLibrary.Task>();
-            TaskListView.ItemsSource = TasksCollection; // Привязка источника данных к ListView
         }
 
-        private void ExitButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void MinButton_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.WindowState = WindowState.Minimized;
-        }
-
-        private void ToolBar_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();
             }
         }
-
-        private void ShowTaskPanelButton_Click(object sender, RoutedEventArgs e)
+        private bool IsMaximizad = false;
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            TaskPanel.Visibility = TaskPanel.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
-        }
-
-        private void SaveTaskButton_Click(object sender, RoutedEventArgs e)
-        {
-            string category = "Работа"; // Устанавливаем категорию "Работа" для примера
-
-            ToDoListLibrary.Task newTask = new ToDoListLibrary.Task(nextTaskId, TaskTitleTextBox.Text, TaskDescriptionTextBox.Text, false, category);
-
-            // Добавляем новую задачу в коллекцию
-            TasksCollection.Add(newTask);
-
-            nextTaskId++;
-
-            // Очищаем текстовые поля
-            TaskTitleTextBox.Text = "Введите название задачи";
-            TaskDescriptionTextBox.Text = "Введите описание задачи";
-
-            DockPanel.SetDock(TaskPanel, Dock.Bottom);
-        }
-        private void TaskListView_MouseDoubleClick(object sender, RoutedEventArgs e)
-        {
-            ToDoListLibrary.Task selectedTask = (ToDoListLibrary.Task)TaskListView.SelectedItem;
-
-            if (selectedTask != null)
+            if(e.ClickCount == 2)
             {
-                EditTaskWindow editTaskWindow = new EditTaskWindow(selectedTask);
-                editTaskWindow.ShowDialog(); // Показать окно модально, чтобы вернуться к основному окну только после закрытия этого
+                if (!IsMaximizad)
+                {
+                    this.WindowState = WindowState.Normal;
+                    this.Width = 1080;
+                    this.Height = 720;
+
+                    IsMaximizad = false;   
+                }
+                else
+                {
+                    this.WindowState = WindowState.Maximized;
+                    
+                    IsMaximizad = true;
+                }
             }
         }
+
     }
 }
