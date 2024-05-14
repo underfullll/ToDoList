@@ -23,6 +23,14 @@ namespace Todolist_in_WPF
         public MainWindow()
         {
             InitializeComponent();
+
+            var converter = new BrushConverter();
+            ObservableCollection<Member> members = new ObservableCollection<Member>();
+
+            //Create Datagrid Items Info
+            members.Add(new Member { IsCompleted = true, Id = "1", Title = "Стать Счастливым", Description = "Да не могу я спать, когда же наконец я стану СЧАСТЛИВЫМ?", });
+
+            membersDataGrid.ItemsSource = members;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -53,6 +61,35 @@ namespace Todolist_in_WPF
                 }
             }
         }
+
+        private void Button_Click_Exit(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_Click_Tasks(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Calendar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Add(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+
+    public class Member
+    {
+        public string Title { get; set; }
+        public string Id { get; set; }
+        public string Description { get; set; }
+        public bool IsCompleted { get; set; }
+
 
     }
 }
