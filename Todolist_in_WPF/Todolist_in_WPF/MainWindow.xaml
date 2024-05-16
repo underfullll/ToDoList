@@ -219,6 +219,7 @@
                 <Button
                     Margin="0,0,20,0"
                     HorizontalAlignment="Right"
+                    Click="Button_Click_Settings"
                     Style="{StaticResource topButon}">
                     <Icon:PackIconMaterial Kind="Cog" />
                 </Button>
@@ -274,13 +275,15 @@
                     Width="200"
                     Margin="410,0,0,0"
                     HorizontalAlignment="Left">
-                    <TextBlock
+                    <TextBox
+                        x:Name="txtFilter2"
                         Margin="15,0"
                         VerticalAlignment="Center"
                         Panel.ZIndex="1"
                         Foreground="Black"
                         IsHitTestVisible="True"
-                        Text="Name Tasks"
+                        IsReadOnly="False"
+                        Text="Description Tasks"
                         Visibility="{Binding Text.IsEmpty, Converter={StaticResource BoolToVis}, ElementName=txtFilter1}" />
 
                     <TextBox x:Name="txtFilter1" Style="{StaticResource txtFilter}" />
@@ -291,12 +294,14 @@
                     Width="200"
                     Margin="200,0,0,0"
                     HorizontalAlignment="Left">
-                    <TextBlock
+                    <TextBox
+                        x:Name="txtFilter3"
                         Margin="15,0"
                         VerticalAlignment="Center"
                         Panel.ZIndex="1"
                         Foreground="Black"
                         IsHitTestVisible="True"
+                        IsReadOnly="False"
                         Text="Name Tasks"
                         Visibility="{Binding Text.IsEmpty, Converter={StaticResource BoolToVis}, ElementName=txtFilter1}" />
 
@@ -305,7 +310,7 @@
 
                 <!--  Memebers Datagrid  -->
                 <DataGrid
-                    x:Name="membersDataGrid"
+                    x:Name="dataGridTasks"
                     Grid.Row="5"
                     Height="500"
                     CellStyle="{DynamicResource DataGridCellStyle1}"
@@ -350,11 +355,17 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
 
-                                        <Button Style="{StaticResource gridEditButon}">
+                                        <Button
+                                            x:Name="EditTaskButton"
+                                            Click="EditTaskButton_Click"
+                                            Style="{StaticResource gridEditButon}">
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
                                         </Button>
 
-                                        <Button Style="{StaticResource gridRemoveButon}">
+                                        <Button
+                                            x:Name="DeleteTaskButton"
+                                            Click="DeleteTaskButton_Click"
+                                            Style="{StaticResource gridRemoveButon}">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource pagingButtonIcon}" />
                                         </Button>
 

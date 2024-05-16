@@ -81,6 +81,7 @@ namespace BD
                     connection.Open();
                     using (SQLiteCommand cmd = new SQLiteCommand(sql, connection))
                     {
+
                         cmd.Parameters.AddWithValue("@Title", title);
                         cmd.Parameters.AddWithValue("@ID", id);
                         cmd.ExecuteNonQuery();
