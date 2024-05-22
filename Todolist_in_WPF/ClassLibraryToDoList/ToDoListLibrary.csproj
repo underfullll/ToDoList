@@ -62,7 +62,6 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Class\Task.cs" />
     <Compile Include="Class\TaskList.cs" />
   </ItemGroup>
   <ItemGroup>

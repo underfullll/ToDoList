@@ -127,7 +127,7 @@
                         </Button>
                     </StackPanel>
 
-                    <StackPanel DockPanel.Dock="Top">
+                    <!--<StackPanel DockPanel.Dock="Top">
                         <Button
                             Width="150"
                             Height="35"
@@ -137,9 +137,7 @@
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
-                                        <!--  Ширина для иконки  -->
                                         <ColumnDefinition Width="60.76" />
-                                        <!--  Оставшееся пространство для текста  -->
                                     </Grid.ColumnDefinitions>
 
                                     <Icon:PackIconMaterial
@@ -161,7 +159,7 @@
                                 </Grid>
                             </StackPanel>
                         </Button>
-                    </StackPanel>
+                    </StackPanel>-->
 
                     <StackPanel
                         Margin="0,0,0,10"
@@ -252,6 +250,24 @@
                     </StackPanel>
                 </Button>
 
+                <!--  Complited Button  -->
+                <Button
+                    Grid.Row="4"
+                    Margin="630,12,0,13"
+                    HorizontalAlignment="Left"
+                    Click="Button_Click_Done"
+                    Style="{StaticResource DoneButon}">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial
+                            Width="11"
+                            Height="11"
+                            Margin="0,1,8,0"
+                            VerticalAlignment="Center"
+                            Kind="check" />
+                        <TextBlock />
+                    </StackPanel>
+                </Button>
+
                 <!--  Seprator  -->
                 <Separator
                     Grid.Row="3"
@@ -320,6 +336,7 @@
                     <DataGrid.Columns>
                         <DataGridCheckBoxColumn
                             Width="auto"
+                            Binding="{Binding IsCompleted}"
                             CanUserResize="False"
                             ElementStyle="{StaticResource CheckBoxStyle1}">
                             <DataGridCheckBoxColumn.HeaderTemplate>
@@ -328,25 +345,38 @@
                                 </DataTemplate>
                             </DataGridCheckBoxColumn.HeaderTemplate>
                         </DataGridCheckBoxColumn>
-
+                        
                         <DataGridTextColumn
                             Width="auto"
                             Binding="{Binding Id}"
                             CanUserResize="False"
                             Header="Id"
                             IsReadOnly="True" />
-
+                        
                         <DataGridTextColumn
-                            Width="auto"
+                            Width="300"
                             Binding="{Binding Title}"
                             Header="Title"
-                            IsReadOnly="True" />
+                            IsReadOnly="True">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        
                         <DataGridTextColumn
-                            Width="auto"
+                            Width="340"
                             Binding="{Binding Description}"
                             Header="Description"
-                            IsReadOnly="True" />
-
+                            IsReadOnly="True">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        
                         <DataGridTemplateColumn
                             Width="auto"
                             Header="Operations"
@@ -354,26 +384,23 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-
                                         <Button
                                             x:Name="EditTaskButton"
                                             Click="EditTaskButton_Click"
                                             Style="{StaticResource gridEditButon}">
                                             <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
                                         </Button>
-
                                         <Button
                                             x:Name="DeleteTaskButton"
                                             Click="DeleteTaskButton_Click"
                                             Style="{StaticResource gridRemoveButon}">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource pagingButtonIcon}" />
                                         </Button>
-
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
+                        
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

@@ -1,11 +1,10 @@
-﻿using System;
+﻿using BD;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data.SQLite;
-using System.Threading.Tasks;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using ToDoListLibrary;
+
 
 namespace Todolist_in_WPF
 {
@@ -14,6 +13,7 @@ namespace Todolist_in_WPF
         public MainWindow()
         {
             InitializeComponent();
+            UpdateTasksFromDatabase();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -24,6 +24,24 @@ namespace Todolist_in_WPF
             }
         }
         private bool IsMaximizad = false;
+        private List<ToDoListLibrary.Task> tasks = new List<ToDoListLibrary.Task>();
+        private ToDoListLibrary.Task selectedTaskForEdit;
+        private int nextId = 1;
+        private void UpdateTasksFromDatabase()
+        {
+            TaskRepository taskRepository = new TaskRepository(); 
+            List<ToDoListLibrary.Task> tasksFromDatabase = taskRepository.ReadAllTasks();
+
+            
+            tasks.Clear();
+            foreach (var task in tasksFromDatabase)
+            {
+                tasks.Add(task);
+            }
+
+            dataGridTasks.ItemsSource = tasks; 
+        }
+
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ClickCount == 2)
@@ -60,62 +78,119 @@ namespace Todolist_in_WPF
 
         }
 
-        private List<ToDoListLibrary.Task> tasks = new List<ToDoListLibrary.Task>();
-
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
-            int nextId = 1; 
             if (tasks == null)
             {
                 tasks = new List<ToDoListLibrary.Task>();
             }
 
-            // Создание нового объекта задания
+            int maxId = tasks.Any() ? tasks.Max(task => task.Id) : 0;
+            nextId = maxId + 1;
+
             ToDoListLibrary.Task newTask = new ToDoListLibrary.Task
             {
-                Id = nextId.ToString(), 
+                Id = nextId,
                 Title = txtFilter3.Text,
                 Description = txtFilter2.Text,
-                IsCompleted = false 
+                IsCompleted = false,
             };
 
-            tasks.Add(newTask);
+            TaskRepository taskRepository = new TaskRepository();
+            taskRepository.Create(newTask);
 
-            dataGridTasks.ItemsSource = tasks; 
-
-            txtFilter3.Text = "Name Tasks"; 
-            txtFilter2.Text = "Description Tasks"; 
-
-            nextId++;
+            tasks = taskRepository.ReadAllTasks();
 
             dataGridTasks.ItemsSource = tasks;
-            dataGridTasks.Items.Refresh(); // Обновить отображаемые данные в DataGrid
+
+            txtFilter3.Text = "Name Tasks";
+            txtFilter2.Text = "Description Tasks";
+
+            dataGridTasks.Items.Refresh();
         }
 
         private void Button_Click_Settings(object sender, RoutedEventArgs e)
         {
+            string connectionString = "Data Source = C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\BD\\DB_ToDoList.db; FailIfMissing=False"; // Подставьте сюда вашу строку подключения к базе данных
 
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                // Удаление существующих данных из таблицы ToDoList
+                using (var command = new SQLiteCommand("DELETE FROM ToDoList", connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+                // Добавление стандартных тасков в таблицу ToDoList
+                string sqlQuery = @"
+            INSERT INTO ToDoList (ID, Title, Description, IsCompleted)
+            VALUES
+                (1, 'Запустить ракету на Марс', 'Подготовиться к запуску и отправить ракету на Марс.', 1),
+                (2, 'Закончить One Pice', 'Ну тут все понятно.', 0),
+                (3, 'Выучить 5 новых языков программирования', 'Стать мастером пяти новых языков программирования за месяц.', 1),
+                (4, 'Стать бесмертным', 'Разгадать генетический код, отвечающий за старение и смерть, и обрести вечную молодость.', 1),
+                (5, 'Стать Счастливым', 'Да не могу я спать, когда же наконец я стану СЧАСТЛИВЫМ?', 0)";
+
+                using (var command = new SQLiteCommand(sqlQuery, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+                connection.Close();
+            }
+            RefreshDataGrid();
+        }
+
+        private void RefreshDataGrid()
+        {
+            // Обновление отображаемых данных в DataGrid
+            TaskRepository taskRepository = new TaskRepository();
+            tasks = taskRepository.ReadAllTasks();
+            dataGridTasks.ItemsSource = tasks;
+            dataGridTasks.Items.Refresh();
         }
 
         private void EditTaskButton_Click(object sender, RoutedEventArgs e)
         {
-            ToDoListLibrary.Task selectedTask = (ToDoListLibrary.Task)dataGridTasks.SelectedItem;
+            selectedTaskForEdit = (ToDoListLibrary.Task)dataGridTasks.SelectedItem;
 
-            dataGridTasks.ItemsSource = tasks;
-            dataGridTasks.Items.Refresh(); // Обновить отображаемые данные в DataGrid
+            txtFilter3.Text = selectedTaskForEdit.Title;
+            txtFilter2.Text = selectedTaskForEdit.Description;
         }
 
         private void DeleteTaskButton_Click(object sender, RoutedEventArgs e)
         {
-            // Получите выбранную задачу из DataGrid
             ToDoListLibrary.Task selectedTask = (ToDoListLibrary.Task)dataGridTasks.SelectedItem;
 
-            // Удалите выбранную задачу из коллекции задач
             tasks.Remove(selectedTask);
 
-            // Обновите DataGrid после удаления задачи
+            TaskRepository taskRepository = new TaskRepository();
+            taskRepository.Delete(selectedTask.Id);
+
             dataGridTasks.ItemsSource = tasks;
-            dataGridTasks.Items.Refresh(); // Обновить отображаемые данные в DataGrid
+            dataGridTasks.Items.Refresh(); 
+        }
+
+        private void Button_Click_Done(object sender, RoutedEventArgs e)
+        {
+            if (selectedTaskForEdit != null)
+            {
+                // Обновление полей выбранной задачи
+                selectedTaskForEdit.Title = txtFilter3.Text;
+                selectedTaskForEdit.Description = txtFilter2.Text;
+
+                // Обновление задачи в базе данных
+                TaskRepository taskRepository = new TaskRepository();
+                taskRepository.Update(selectedTaskForEdit);
+
+                // Обновление отображаемых данных в DataGrid
+                tasks = taskRepository.ReadAllTasks();
+                dataGridTasks.ItemsSource = tasks;
+                dataGridTasks.Items.Refresh();
+            }
         }
     }
+
 }
