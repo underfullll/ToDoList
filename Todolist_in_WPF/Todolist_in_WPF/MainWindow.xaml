@@ -74,6 +74,8 @@
                         Foreground="White"
                         Text="Anton Entertainment"
                         TextAlignment="Center" />
+                    
+                    <!--  Menu Titles  -->
                     <TextBlock
                         Margin="5,25,0,10"
                         DockPanel.Dock="Top"
@@ -90,7 +92,7 @@
                         Background="White"
                         DockPanel.Dock="Top" />
 
-                    <!--  Menu Button  -->
+                    <!--  Menu Button Tacks  -->
                     <StackPanel DockPanel.Dock="Top">
                         <Button
                             Width="150"
@@ -101,9 +103,7 @@
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
-                                        <!--  Ширина для иконки  -->
                                         <ColumnDefinition Width="*" />
-                                        <!--  Оставшееся пространство для текста  -->
                                     </Grid.ColumnDefinitions>
 
                                     <Icon:PackIconMaterial
@@ -126,8 +126,9 @@
                             </StackPanel>
                         </Button>
                     </StackPanel>
-
-                    <!--<StackPanel DockPanel.Dock="Top">
+                    
+                    <!--  Menu Button Calendar  -->
+                    <StackPanel DockPanel.Dock="Top">
                         <Button
                             Width="150"
                             Height="35"
@@ -159,8 +160,79 @@
                                 </Grid>
                             </StackPanel>
                         </Button>
-                    </StackPanel>-->
+                    </StackPanel>
 
+                    <!--  Menu Button notes  -->
+                    <StackPanel DockPanel.Dock="Top">
+                        <Button
+        Width="150"
+        Height="35"
+        Click="Button_Click_Calendar"
+        Style="{StaticResource menuButon}">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="60.76" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Icon:PackIconMaterial
+                    Grid.Column="0"
+                    Width="15"
+                    Height="15"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Kind="Pencil"
+                    Style="{StaticResource menuButtonIcon}" />
+
+                                    <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Text="Notes" />
+                                </Grid>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+
+                    <!--  Menu Button Contacts  -->
+                    <StackPanel DockPanel.Dock="Top">
+                        <Button
+        Width="150"
+        Height="35"
+        Click="Button_Click_Calendar"
+        Style="{StaticResource menuButon}">
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="60.76" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Icon:PackIconMaterial
+                    Grid.Column="0"
+                    Width="15"
+                    Height="15"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Kind="contacts"
+                    Style="{StaticResource menuButtonIcon}" />
+
+                                    <TextBlock
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Text="Contacts" />
+                                </Grid>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    
+                    <!--  Menu Button Exit  -->
                     <StackPanel
                         Margin="0,0,0,10"
                         VerticalAlignment="Bottom"
@@ -174,9 +246,7 @@
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
-                                        <!--  Ширина для иконки  -->
                                         <ColumnDefinition Width="*" />
-                                        <!--  Оставшееся пространство для текста  -->
                                     </Grid.ColumnDefinitions>
 
                                     <Icon:PackIconMaterial
@@ -213,7 +283,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <!--  Top Buttons  -->
+                <!--  Settings Buttons  -->
                 <Button
                     Margin="0,0,20,0"
                     HorizontalAlignment="Right"
@@ -285,7 +355,7 @@
                     Foreground="Black"
                     Text="Day Month Year" />
 
-                <!--  Filter Textbox  -->
+                <!--  Deskription Tasks Textbox  -->
                 <Grid
                     Grid.Row="4"
                     Width="200"
@@ -304,7 +374,7 @@
 
                     <TextBox x:Name="txtFilter1" Style="{StaticResource txtFilter}" />
                 </Grid>
-
+                <!--  Name Tasks Textbox  -->
                 <Grid
                     Grid.Row="4"
                     Width="200"
@@ -324,7 +394,7 @@
                     <TextBox x:Name="txtFilter" Style="{StaticResource txtFilter}" />
                 </Grid>
 
-                <!--  Memebers Datagrid  -->
+                <!--  Tasks Datagrid  -->
                 <DataGrid
                     x:Name="dataGridTasks"
                     Grid.Row="5"

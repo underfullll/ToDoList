@@ -14,3 +14,19 @@ C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bi
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\System.Data.SQLite.xml
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\obj\Debug\ToDoList.13ED0542.Up2Date
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\ClassLibraryToDoList.dll.config
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\ClassLibraryToDoList.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\ClassLibraryToDoList.pdb
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\EntityFramework.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\System.Data.SQLite.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\EntityFramework.xml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\bin\Debug\System.Data.SQLite.xml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\obj\Debug\ToDoListLibrary.csproj.AssemblyReference.cache
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\obj\Debug\ToDoListLibrary.csproj.CoreCompileInputs.cache
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\obj\Debug\ClassLibraryToDoList.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\obj\Debug\ClassLibraryToDoList.pdb
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\ClassLibraryToDoList\obj\Debug\ToDoList.13ED0542.Up2Date

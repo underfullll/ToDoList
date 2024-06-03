@@ -5,7 +5,7 @@ namespace BD
 {
     public class TaskRepository
     {
-        private string connectionString = "Data Source = C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\BD\\DB_ToDoList.db; FailIfMissing=False";
+        private string connectionString = "Data Source = C:\\Users\\anton\\OneDrive\\Рабочий стол\\projects\\ToDoList\\Todolist_in_WPF\\BD\\BD\\DB_ToDoList.db; FailIfMissing=False";
 
         public void Create(ToDoListLibrary.Task task)
         {

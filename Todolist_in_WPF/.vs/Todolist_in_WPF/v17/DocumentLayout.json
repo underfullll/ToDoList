@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\",
+  "WorkspaceRootPath": "C:\\Users\\anton\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\ToDoList\\Todolist_in_WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9768C2D0-E1AB-45F5-B04B-8268D682268D}|Todolist_in_WPF\\Todolist_in_WPF.csproj|c:\\users\\anton\\desktop\\projects\\todolist\\todolist_in_wpf\\todolist_in_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9768C2D0-E1AB-45F5-B04B-8268D682268D}|Todolist_in_WPF\\Todolist_in_WPF.csproj|c:\\users\\anton\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\todolist\\todolist_in_wpf\\todolist_in_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9768C2D0-E1AB-45F5-B04B-8268D682268D}|Todolist_in_WPF\\Todolist_in_WPF.csproj|solutionrelative:todolist_in_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -14,35 +14,15 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": -1,
-          "Children": []
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "2a656cc5-97c1-4dad-9804-3c4fa7ce8b3d",
-        "Display": 1,
-        "X": 347,
-        "Y": 105,
-        "Width": 1528,
-        "Height": 771,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\anton\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Todolist_in_WPF\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\anton\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
               "RelativeToolTip": "Todolist_in_WPF\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-05-22T15:21:11.48Z",

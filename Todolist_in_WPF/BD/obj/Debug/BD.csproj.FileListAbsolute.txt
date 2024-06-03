@@ -14,3 +14,19 @@ C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\System.Dat
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.csproj.Up2Date
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.dll
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.pdb
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\BD.dll.config
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\BD.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\BD.pdb
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\EntityFramework.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\System.Data.SQLite.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\EntityFramework.xml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\bin\Debug\System.Data.SQLite.xml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.csproj.AssemblyReference.cache
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.csproj.CoreCompileInputs.cache
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.dll
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.pdb
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.csproj.Up2Date

@@ -111,7 +111,7 @@ namespace Todolist_in_WPF
 
         private void Button_Click_Settings(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Data Source = C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\BD\\DB_ToDoList.db; FailIfMissing=False"; // Подставьте сюда вашу строку подключения к базе данных
+            string connectionString = "Data Source = C:\\Users\\anton\\OneDrive\\Рабочий стол\\projects\\ToDoList\\Todolist_in_WPF\\BD\\BD\\DB_ToDoList.db; FailIfMissing=False"; // Подставьте сюда вашу строку подключения к базе данных
 
             using (var connection = new SQLiteConnection(connectionString))
             {
