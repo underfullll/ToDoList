@@ -1,4 +1,5 @@
-﻿ <Window
+﻿ 
+<Window
     x:Class="Todolist_in_WPF.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -34,7 +35,10 @@
             </Grid.RowDefinitions>
 
             <!--  Menu Icon  -->
-            <Button Margin="10 0 0 650" Style="{StaticResource topButon}">
+            <Button
+                Margin="10,0,0,650"
+                Command="{Binding ShowCalendarInfoCommand}"
+                Style="{StaticResource topButon}">
                 <Icon:PackIconMaterial
                     Width="15"
                     Height="15"
@@ -106,7 +110,7 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
 
-                                    
+
                                     <Icon:PackIconMaterial
                                         Grid.Column="0"
                                         Width="15"
@@ -133,6 +137,7 @@
                         <Button
                             Width="150"
                             Height="35"
+                            Command="{Binding ShowCalendarInfoCommand}"
                             Click="Button_Click_Calendar"
                             Style="{StaticResource menuButon}">
                             <StackPanel Orientation="Horizontal">
@@ -155,7 +160,6 @@
                                     <TextBlock
                                         Grid.Column="1"
                                         Margin="10,0,0,0"
-                                        HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
                                         Text="Calendar" />
                                 </Grid>
@@ -166,10 +170,10 @@
                     <!--  Menu Button notes  -->
                     <StackPanel DockPanel.Dock="Top">
                         <Button
-        Width="150"
-        Height="35"
-        Click="Button_Click_Calendar"
-        Style="{StaticResource menuButon}">
+                            Width="150"
+                            Height="35"
+                            Click="Button_Click_Calendar"
+                            Style="{StaticResource menuButon}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -178,22 +182,22 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Icon:PackIconMaterial
-                    Grid.Column="0"
-                    Width="15"
-                    Height="15"
-                    Margin="10,0,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Kind="Pencil"
-                    Style="{StaticResource menuButtonIcon}" />
+                                        Grid.Column="0"
+                                        Width="15"
+                                        Height="15"
+                                        Margin="10,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Kind="Pencil"
+                                        Style="{StaticResource menuButtonIcon}" />
 
-                                    
+
                                     <TextBlock
-                    Grid.Column="1"
-                    Margin="10,0,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Text="Notes" />
+                                        Grid.Column="1"
+                                        Margin="10,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Text="Notes" />
                                 </Grid>
                             </StackPanel>
                         </Button>
@@ -202,10 +206,10 @@
                     <!--  Menu Button Contacts  -->
                     <StackPanel DockPanel.Dock="Top">
                         <Button
-        Width="150"
-        Height="35"
-        Click="Button_Click_Calendar"
-        Style="{StaticResource menuButon}">
+                            Width="150"
+                            Height="35"
+                            Click="Button_Click_Calendar"
+                            Style="{StaticResource menuButon}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -214,21 +218,21 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Icon:PackIconMaterial
-                    Grid.Column="0"
-                    Width="15"
-                    Height="15"
-                    Margin="10,0,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Kind="contacts"
-                    Style="{StaticResource menuButtonIcon}" />
+                                        Grid.Column="0"
+                                        Width="15"
+                                        Height="15"
+                                        Margin="10,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Kind="contacts"
+                                        Style="{StaticResource menuButtonIcon}" />
 
                                     <TextBlock
-                    Grid.Column="1"
-                    Margin="10,0,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Text="Contacts" />
+                                        Grid.Column="1"
+                                        Margin="10,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Text="Contacts" />
                                 </Grid>
                             </StackPanel>
                         </Button>
@@ -274,7 +278,7 @@
                 </DockPanel>
             </Border>
 
-            
+
             <!--  Main Section  -->
             <Grid Grid.Column="1" Margin="30,20,20,20">
                 <Grid.RowDefinitions>
@@ -286,13 +290,13 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <!--  Settings Buttons  -->
+                <!--  DeleteOll Buttons  -->
                 <Button
                     Margin="0,0,20,0"
                     HorizontalAlignment="Right"
-                    Click="Button_Click_Settings"
+                    Click="Button_Click_DeliteOll"
                     Style="{StaticResource topButon}">
-                    <Icon:PackIconMaterial Kind="Refresh" />
+                    <Icon:PackIconMaterial Kind="Delete" />
                 </Button>
 
                 <!--  Page Title  -->
@@ -375,7 +379,7 @@
                         Text="Description Tasks"
                         Visibility="{Binding Text.IsEmpty, Converter={StaticResource BoolToVis}, ElementName=txtFilter1}" />
 
-                    
+
                     <TextBox x:Name="txtFilter1" Style="{StaticResource txtFilter}" />
                 </Grid>
                 <!--  Name Tasks Textbox  -->
@@ -459,7 +463,7 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
 
-                                        
+
                                         <Button
                                             x:Name="EditTaskButton"
                                             Click="EditTaskButton_Click"

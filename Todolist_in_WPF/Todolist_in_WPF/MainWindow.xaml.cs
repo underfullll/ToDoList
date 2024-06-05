@@ -1,9 +1,11 @@
 ﻿using BD;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Markup;
 
 
 namespace Todolist_in_WPF
@@ -13,6 +15,7 @@ namespace Todolist_in_WPF
         public MainWindow()
         {
             InitializeComponent();
+            EnsureDataBase();
             UpdateTasksFromDatabase();
         }
 
@@ -27,6 +30,16 @@ namespace Todolist_in_WPF
         private List<ToDoListLibrary.Task> tasks = new List<ToDoListLibrary.Task>();
         private ToDoListLibrary.Task selectedTaskForEdit;
         private int nextId = 1;
+
+        private void EnsureDataBase()
+        {
+            if (!TaskRepository.IsDatabaseExist())
+            {
+                TaskRepository.CreateDataBase();
+                TaskRepository.MigrateDataBase();
+            }
+        }
+
         private void UpdateTasksFromDatabase()
         {
             TaskRepository taskRepository = new TaskRepository(); 
@@ -109,9 +122,10 @@ namespace Todolist_in_WPF
             dataGridTasks.Items.Refresh();
         }
 
-        private void Button_Click_Settings(object sender, RoutedEventArgs e)
+        private void Button_Click_DeliteOll(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Data Source = C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\BD\\DB_ToDoList.db; FailIfMissing=False"; 
+            // Здесь вы можете использовать тот же connectionString, что и в классе TaskRepository
+            string connectionString = "Data Source = DB_ToDoList.sqlite";
 
             using (var connection = new SQLiteConnection(connectionString))
             {
@@ -123,23 +137,9 @@ namespace Todolist_in_WPF
                     command.ExecuteNonQuery();
                 }
 
-                // Добавление стандартных тасков в таблицу ToDoList
-                string sqlQuery = @"
-            INSERT INTO ToDoList (ID, Title, Description, IsCompleted)
-            VALUES
-                (1, 'Запустить ракету на Марс', 'Подготовиться к запуску и отправить ракету на Марс.', 1),
-                (2, 'Закончить One Pice', 'Ну тут все понятно.', 0),
-                (3, 'Выучить 5 новых языков программирования', 'Стать мастером пяти новых языков программирования за месяц.', 1),
-                (4, 'Стать бесмертным', 'Разгадать генетический код, отвечающий за старение и смерть, и обрести вечную молодость.', 1),
-                (5, 'Стать Счастливым', 'Да не могу я спать, когда же наконец я стану СЧАСТЛИВЫМ?', 0)";
-
-                using (var command = new SQLiteCommand(sqlQuery, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-
                 connection.Close();
             }
+
             RefreshDataGrid();
         }
 

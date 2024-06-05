@@ -3,84 +3,96 @@
   "WorkspaceRootPath": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{626E73B2-4119-47FE-82BB-889FCD596711}|BD\\BD.csproj|c:\\users\\anton\\desktop\\projects\\todolist\\todolist_in_wpf\\bd\\repository\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{626E73B2-4119-47FE-82BB-889FCD596711}|BD\\BD.csproj|solutionrelative:bd\\repository\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9768C2D0-E1AB-45F5-B04B-8268D682268D}|Todolist_in_WPF\\Todolist_in_WPF.csproj|c:\\users\\anton\\desktop\\projects\\todolist\\todolist_in_wpf\\todolist_in_wpf\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{9768C2D0-E1AB-45F5-B04B-8268D682268D}|Todolist_in_WPF\\Todolist_in_WPF.csproj|solutionrelative:todolist_in_wpf\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{626E73B2-4119-47FE-82BB-889FCD596711}|BD\\BD.csproj|C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\bd\\repository\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{626E73B2-4119-47FE-82BB-889FCD596711}|BD\\BD.csproj|solutionrelative:bd\\repository\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{626E73B2-4119-47FE-82BB-889FCD596711}|BD\\BD.csproj|c:\\users\\anton\\desktop\\projects\\todolist\\todolist_in_wpf\\bd\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{626E73B2-4119-47FE-82BB-889FCD596711}|BD\\BD.csproj|solutionrelative:bd\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9768C2D0-E1AB-45F5-B04B-8268D682268D}|Todolist_in_WPF\\Todolist_in_WPF.csproj|c:\\users\\anton\\desktop\\projects\\todolist\\todolist_in_wpf\\todolist_in_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9768C2D0-E1AB-45F5-B04B-8268D682268D}|Todolist_in_WPF\\Todolist_in_WPF.csproj|solutionrelative:todolist_in_wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9768C2D0-E1AB-45F5-B04B-8268D682268D}|Todolist_in_WPF\\Todolist_in_WPF.csproj|C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\todolist_in_wpf\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{9768C2D0-E1AB-45F5-B04B-8268D682268D}|Todolist_in_WPF\\Todolist_in_WPF.csproj|solutionrelative:todolist_in_wpf\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{626E73B2-4119-47FE-82BB-889FCD596711}|BD\\BD.csproj|C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\bd\\repository\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{626E73B2-4119-47FE-82BB-889FCD596711}|BD\\BD.csproj|solutionrelative:bd\\repository\\taskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 154,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TaskRepository.cs",
-              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\Repository\\TaskRepository.cs",
-              "RelativeDocumentMoniker": "BD\\Repository\\TaskRepository.cs",
-              "ToolTip": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\Repository\\TaskRepository.cs",
-              "RelativeToolTip": "BD\\Repository\\TaskRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAACmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T20:17:47.137Z",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Todolist_in_WPF\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
+              "RelativeToolTip": "Todolist_in_WPF\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-05T18:55:21.928Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Todolist_in_WPF\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
-              "RelativeToolTip": "Todolist_in_WPF\\MainWindow.xaml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACgAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-03T19:41:32.836Z",
+              "Title": "Resources.resx",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "BD\\Properties\\Resources.resx",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\Properties\\Resources.resx",
+              "RelativeToolTip": "BD\\Properties\\Resources.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-06-05T18:52:19.773Z",
               "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "770b9eda-d448-4c68-b232-42bb1e2ce965",
-        "Display": 1,
-        "X": 477,
-        "Y": 223,
-        "Width": 1528,
-        "Height": 819,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Todolist_in_WPF\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml",
-              "RelativeToolTip": "Todolist_in_WPF\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-03T19:37:38.824Z",
+              "Title": "Task.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\Repository\\Task.cs",
+              "RelativeDocumentMoniker": "BD\\Repository\\Task.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\Repository\\Task.cs",
+              "RelativeToolTip": "BD\\Repository\\Task.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T18:07:08.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Todolist_in_WPF\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Todolist_in_WPF\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAGoAAAAAAAAAAAASwHwAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T17:48:48.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TaskRepository.cs",
+              "DocumentMoniker": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\Repository\\TaskRepository.cs",
+              "RelativeDocumentMoniker": "BD\\Repository\\TaskRepository.cs",
+              "ToolTip": "C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\Repository\\TaskRepository.cs",
+              "RelativeToolTip": "BD\\Repository\\TaskRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-05T17:36:11.649Z",
               "EditorCaption": ""
             }
           ]

@@ -5,7 +5,7 @@
     xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+
         <Style x:Key="topButon" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="Black" />
@@ -35,7 +35,6 @@
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-            <!--<Setter Property="Width" Value="35"/>-->
             <Setter Property="Margin" Value="15,3" />
             <Setter Property="FontSize" Value="13" />
             <Setter Property="Template">
@@ -93,7 +92,7 @@
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <!--<Setter Property="BorderBrush" Value="black" TargetName="border"/>-->
+                                
                                 <Setter Property="Foreground" Value="White" />
                                 <Setter Property="Background" Value="Black" />
                             </Trigger>
@@ -567,7 +566,7 @@
             </Style.Triggers>
         </Style>
         
-        <!--#region CheckBox style-->
+
         <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF"/>
         <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="OptionMark.Static.Glyph" Color="#FF212121"/>
@@ -638,7 +637,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <!--#endregion-->
 
     </Application.Resources>
 
