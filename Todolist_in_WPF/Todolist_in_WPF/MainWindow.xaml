@@ -1,8 +1,11 @@
-﻿ 
-<Window
+﻿ <Window
     x:Class="Todolist_in_WPF.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Todolist_in_WPF.ViewModel"
+    xmlns:Menu="clr-namespace:Todolist_in_WPF.Utilities"
     xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
     Title="Todolist"
     Width="1080"
@@ -34,16 +37,18 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
+            <ContentControl Content="{Binding CurrentView}" />
+
             <!--  Menu Icon  -->
-            <Button
+            <Menu:Btn
                 Margin="10,0,0,650"
-                Command="{Binding ShowCalendarInfoCommand}"
-                Style="{StaticResource topButon}">
-                <Icon:PackIconMaterial
+                Command="{Binding AccountCommand}"
+                Style="{StaticResource TopBtnStyle}" Click="Account_Button_Click">
+                <Icon:PackIconMaterial HorizontalAlignment="Center" VerticalAlignment="Center"
                     Width="15"
                     Height="15"
                     Kind="Account" />
-            </Button>
+            </Menu:Btn>
 
             <!--  Menu Button  -->
             <Border
@@ -98,11 +103,11 @@
 
                     <!--  Menu Button Tacks  -->
                     <StackPanel DockPanel.Dock="Top">
-                        <Button
+                        <Menu:Btn
                             Width="150"
                             Height="35"
-                            Click="Button_Click_Tasks"
-                            Style="{StaticResource menuButon}">
+                            Style="{StaticResource BtnStyle}"
+                            Command="{Binding TasksCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -129,17 +134,16 @@
                                         Text="Tasks" />
                                 </Grid>
                             </StackPanel>
-                        </Button>
+                        </Menu:Btn>
                     </StackPanel>
 
                     <!--  Menu Button Calendar  -->
                     <StackPanel DockPanel.Dock="Top">
-                        <Button
+                        <Menu:Btn
                             Width="150"
                             Height="35"
-                            Command="{Binding ShowCalendarInfoCommand}"
-                            Click="Button_Click_Calendar"
-                            Style="{StaticResource menuButon}">
+                            Style="{StaticResource BtnStyle}"
+                            Command="{Binding CalendarCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -164,16 +168,16 @@
                                         Text="Calendar" />
                                 </Grid>
                             </StackPanel>
-                        </Button>
+                        </Menu:Btn>
                     </StackPanel>
 
                     <!--  Menu Button notes  -->
                     <StackPanel DockPanel.Dock="Top">
-                        <Button
+                        <Menu:Btn
                             Width="150"
                             Height="35"
-                            Click="Button_Click_Calendar"
-                            Style="{StaticResource menuButon}">
+                            Style="{StaticResource BtnStyle}"
+                            Command="{Binding NotesCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -200,16 +204,16 @@
                                         Text="Notes" />
                                 </Grid>
                             </StackPanel>
-                        </Button>
+                        </Menu:Btn>
                     </StackPanel>
 
                     <!--  Menu Button Contacts  -->
                     <StackPanel DockPanel.Dock="Top">
-                        <Button
+                        <Menu:Btn
                             Width="150"
                             Height="35"
-                            Click="Button_Click_Calendar"
-                            Style="{StaticResource menuButon}">
+                            Style="{StaticResource BtnStyle}"
+                            Command="{Binding ContactsCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -235,7 +239,7 @@
                                         Text="Contacts" />
                                 </Grid>
                             </StackPanel>
-                        </Button>
+                        </Menu:Btn>
                     </StackPanel>
 
                     <!--  Menu Button Exit  -->
@@ -280,7 +284,8 @@
 
 
             <!--  Main Section  -->
-            <Grid Grid.Column="1" Margin="30,20,20,20">
+            <Grid Name="MainGrid" Grid.Column="1" Margin="30,20,20,20">
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />

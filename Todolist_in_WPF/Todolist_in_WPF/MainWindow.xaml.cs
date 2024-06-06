@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
+using Todolist_in_WPF.Utilities;
+using Todolist_in_WPF.View;
+using Todolist_in_WPF.ViewModel;
 
 
 namespace Todolist_in_WPF
@@ -42,17 +46,17 @@ namespace Todolist_in_WPF
 
         private void UpdateTasksFromDatabase()
         {
-            TaskRepository taskRepository = new TaskRepository(); 
+            TaskRepository taskRepository = new TaskRepository();
             List<ToDoListLibrary.Task> tasksFromDatabase = taskRepository.ReadAllTasks();
 
-            
+
             tasks.Clear();
             foreach (var task in tasksFromDatabase)
             {
                 tasks.Add(task);
             }
 
-            dataGridTasks.ItemsSource = tasks; 
+            dataGridTasks.ItemsSource = tasks;
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -81,15 +85,6 @@ namespace Todolist_in_WPF
             this.Close();
         }
 
-        private void Button_Click_Tasks(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_Calendar(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
@@ -170,7 +165,7 @@ namespace Todolist_in_WPF
             taskRepository.Delete(selectedTask.Id);
 
             dataGridTasks.ItemsSource = tasks;
-            dataGridTasks.Items.Refresh(); 
+            dataGridTasks.Items.Refresh();
         }
 
         private void Button_Click_Done(object sender, RoutedEventArgs e)
@@ -189,6 +184,17 @@ namespace Todolist_in_WPF
                 tasks = taskRepository.ReadAllTasks();
                 dataGridTasks.ItemsSource = tasks;
                 dataGridTasks.Items.Refresh();
+            }
+        }
+
+        private void Account_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Account accountControl = new Account(); // Создание экземпляра вашего UserControl
+
+            if (MainGrid != null)
+            {
+                Grid.SetColumn(accountControl, 1);
+                MainGrid.Children.Add(accountControl);
             }
         }
     }

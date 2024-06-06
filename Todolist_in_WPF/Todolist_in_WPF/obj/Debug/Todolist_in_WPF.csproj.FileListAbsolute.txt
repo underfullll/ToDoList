@@ -271,3 +271,13 @@ C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WP
 C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF.exe
 C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF.pdb
 C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist.6D44DE4E.Up2Date
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF_MarkupCompile.lref
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Utilities\DataTemplate.baml
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Account.g.cs
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Tacks.g.cs
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Account.baml
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Tacks.baml
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Styles\Image.baml
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Styles\Page.baml
+C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Styles\Text.baml
