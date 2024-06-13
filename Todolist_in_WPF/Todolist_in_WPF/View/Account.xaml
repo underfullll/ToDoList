@@ -16,21 +16,13 @@
 
     <Grid Grid.Column="1" Margin="30,20,20,20" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <!--  DeleteOll Buttons  -->
-        <Button
-            Margin="0,0,20,0"
-            HorizontalAlignment="Right"
-            Style="{StaticResource topButon}">
-            <Icon:PackIconMaterial Kind="Delete" />
-        </Button>
 
         <!--  Page Title  -->
         <TextBlock
@@ -55,7 +47,7 @@
                     Margin="0,1,8,0"
                     VerticalAlignment="Center"
                     Kind="Plus" />
-                <TextBlock Text="Add a new task" />
+                <TextBlock Text="Add a new account" />
             </StackPanel>
         </Button>
 
@@ -84,20 +76,38 @@
             Background="Black" />
 
         <!--  Counter Title  -->
-        <TextBlock
-            Grid.Row="4"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            FontSize="18"
-            FontWeight="SemiBold"
-            Foreground="Black"
-            Text="Day Month Year" />
+        
+
+        <!--  Menu Logo  -->
+        <Border Grid.Row="5"
+        Width="80"
+        Height="80"
+        Margin="10,-400,0,0"
+        Padding="3"
+        HorizontalAlignment="Left"
+        Background="White"
+        CornerRadius="100">
+            <Grid>
+                <Ellipse>
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Source/None_Account.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Button x:Name="EditTaskButton"  Style="{StaticResource gridEditButon}" Content="Edit" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button" >
+                            <ContentPresenter />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Border>
 
         <!--  Deskription Tasks Textbox  -->
         <Grid
-            Grid.Row="4"
+            Grid.Row="5"
             Width="200"
-            Margin="410,0,0,0"
+            Margin="10,-150,0,0"
             HorizontalAlignment="Left">
             <TextBox
                 x:Name="txtFilter2"
@@ -107,7 +117,7 @@
                 Foreground="Black"
                 IsHitTestVisible="True"
                 IsReadOnly="False"
-                Text="Description Tasks"
+                Text="First name"
                 Visibility="{Binding Text.IsEmpty, Converter={StaticResource BoolToVis}, ElementName=txtFilter1}" />
 
 
@@ -115,9 +125,9 @@
         </Grid>
         <!--  Name Tasks Textbox  -->
         <Grid
-            Grid.Row="4"
+            Grid.Row="5"
             Width="200"
-            Margin="200,0,0,0"
+            Margin="10,-250,0,0"
             HorizontalAlignment="Left">
             <TextBox
                 x:Name="txtFilter3"
@@ -127,86 +137,10 @@
                 Foreground="Black"
                 IsHitTestVisible="True"
                 IsReadOnly="False"
-                Text="Name Tasks"
+                Text="Name"
                 Visibility="{Binding Text.IsEmpty, Converter={StaticResource BoolToVis}, ElementName=txtFilter1}" />
 
             <TextBox x:Name="txtFilter" Style="{StaticResource txtFilter}" />
         </Grid>
-
-        <!--  Tasks Datagrid  -->
-        <DataGrid
-            x:Name="dataGridTasks"
-            Grid.Row="5"
-            Height="500"
-            CellStyle="{DynamicResource DataGridCellStyle1}"
-            ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
-            RowStyle="{DynamicResource DataGridRowStyle1}"
-            Style="{DynamicResource DataGridStyle1}">
-            <DataGrid.Columns>
-                <DataGridCheckBoxColumn
-                    Width="auto"
-                    Binding="{Binding IsCompleted}"
-                    CanUserResize="False"
-                    ElementStyle="{StaticResource CheckBoxStyle1}">
-                    <DataGridCheckBoxColumn.HeaderTemplate>
-                        <DataTemplate>
-                            <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle1}" />
-                        </DataTemplate>
-                    </DataGridCheckBoxColumn.HeaderTemplate>
-                </DataGridCheckBoxColumn>
-
-                <DataGridTextColumn
-                    Width="auto"
-                    Binding="{Binding Id}"
-                    CanUserResize="False"
-                    Header="Id"
-                    IsReadOnly="True" />
-
-                <DataGridTextColumn
-                    Width="300"
-                    Binding="{Binding Title}"
-                    Header="Title"
-                    IsReadOnly="True">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="TextWrapping" Value="Wrap" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-
-                <DataGridTextColumn
-                    Width="340"
-                    Binding="{Binding Description}"
-                    Header="Description"
-                    IsReadOnly="True">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="TextWrapping" Value="Wrap" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-
-                <DataGridTemplateColumn
-                    Width="auto"
-                    Header="Operations"
-                    IsReadOnly="True">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-
-
-                                <Button x:Name="EditTaskButton" Style="{StaticResource gridEditButon}">
-                                    <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
-                                </Button>
-                                <Button x:Name="DeleteTaskButton" Style="{StaticResource gridRemoveButon}">
-                                    <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource pagingButtonIcon}" />
-                                </Button>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-            </DataGrid.Columns>
-        </DataGrid>
     </Grid>
 </UserControl>
