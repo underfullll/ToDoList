@@ -1,12 +1,13 @@
-﻿ <Window
+﻿
+<Window
     x:Class="Todolist_in_WPF.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:Menu="clr-namespace:Todolist_in_WPF.Utilities"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Todolist_in_WPF.ViewModel"
-    xmlns:Menu="clr-namespace:Todolist_in_WPF.Utilities"
-    xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
     Title="Todolist"
     Width="1080"
     Height="720"
@@ -42,11 +43,14 @@
             <!--  Menu Icon  -->
             <Menu:Btn
                 Margin="10,0,0,650"
+                Click="Account_Button_Click"
                 Command="{Binding AccountCommand}"
-                Style="{StaticResource TopBtnStyle}" Click="Account_Button_Click">
-                <Icon:PackIconMaterial HorizontalAlignment="Center" VerticalAlignment="Center"
+                Style="{StaticResource TopBtnStyle}">
+                <Icon:PackIconMaterial
                     Width="15"
                     Height="15"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     Kind="Account" />
             </Menu:Btn>
 
@@ -106,8 +110,9 @@
                         <Menu:Btn
                             Width="150"
                             Height="35"
-                            Style="{StaticResource BtnStyle}"
-                            Command="{Binding TasksCommand}">
+                            Click="Btn_Tasks"
+                            Command="{Binding TasksCommand}"
+                            Style="{StaticResource BtnStyle}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -142,8 +147,9 @@
                         <Menu:Btn
                             Width="150"
                             Height="35"
-                            Style="{StaticResource BtnStyle}"
-                            Command="{Binding CalendarCommand}">
+                            Click="Btn_Calendar"
+                            Command="{Binding CalendarCommand}"
+                            Style="{StaticResource BtnStyle}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -176,8 +182,9 @@
                         <Menu:Btn
                             Width="150"
                             Height="35"
-                            Style="{StaticResource BtnStyle}"
-                            Command="{Binding NotesCommand}">
+                            Click="Btn_Notes"
+                            Command="{Binding NotesCommand}"
+                            Style="{StaticResource BtnStyle}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -212,8 +219,9 @@
                         <Menu:Btn
                             Width="150"
                             Height="35"
-                            Style="{StaticResource BtnStyle}"
-                            Command="{Binding ContactsCommand}">
+                            Click="Btn_Contacts"
+                            Command="{Binding ContactsCommand}"
+                            Style="{StaticResource BtnStyle}">
                             <StackPanel Orientation="Horizontal">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -284,25 +292,29 @@
 
 
             <!--  Main Section  -->
-            <Grid Name="MainGrid" Grid.Column="1" Margin="30,20,20,20">
-                
+            <Grid
+                Name="MainGrid"
+                Grid.Column="1"
+                Margin="30,20,20,20">
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
                 <!--  DeleteOll Buttons  -->
-                <Button
-                    Margin="0,0,20,0"
-                    HorizontalAlignment="Right"
-                    Click="Button_Click_DeliteOll"
-                    Style="{StaticResource topButon}">
-                    <Icon:PackIconMaterial Kind="Delete" />
-                </Button>
+                <Grid>
+                    <Button
+                        Margin="0,0,20,0"
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource topButon}">
+                        <Icon:PackIconMaterial Kind="Delete" />
+                    </Button>
+                </Grid>
 
                 <!--  Page Title  -->
                 <TextBlock

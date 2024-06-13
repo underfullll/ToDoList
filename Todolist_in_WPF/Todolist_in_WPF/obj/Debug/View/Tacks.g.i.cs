@@ -38,12 +38,12 @@ namespace Todolist_in_WPF.View {
     
     
     /// <summary>
-    /// Tacks
+    /// Tasks
     /// </summary>
-    public partial class Tacks : System.Windows.Window, System.Windows.Markup.IComponentConnector {
+    public partial class Tasks : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
         
         
-        #line 103 "..\..\..\View\Tacks.xaml"
+        #line 104 "..\..\..\View\Tacks.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtFilter2;
         
@@ -51,7 +51,7 @@ namespace Todolist_in_WPF.View {
         #line hidden
         
         
-        #line 114 "..\..\..\View\Tacks.xaml"
+        #line 115 "..\..\..\View\Tacks.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtFilter1;
         
@@ -59,7 +59,7 @@ namespace Todolist_in_WPF.View {
         #line hidden
         
         
-        #line 123 "..\..\..\View\Tacks.xaml"
+        #line 124 "..\..\..\View\Tacks.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtFilter3;
         
@@ -67,7 +67,7 @@ namespace Todolist_in_WPF.View {
         #line hidden
         
         
-        #line 133 "..\..\..\View\Tacks.xaml"
+        #line 134 "..\..\..\View\Tacks.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtFilter;
         
@@ -75,7 +75,7 @@ namespace Todolist_in_WPF.View {
         #line hidden
         
         
-        #line 138 "..\..\..\View\Tacks.xaml"
+        #line 139 "..\..\..\View\Tacks.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.DataGrid dataGridTasks;
         

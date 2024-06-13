@@ -119,14 +119,12 @@ namespace Todolist_in_WPF
 
         private void Button_Click_DeliteOll(object sender, RoutedEventArgs e)
         {
-            // Здесь вы можете использовать тот же connectionString, что и в классе TaskRepository
             string connectionString = "Data Source = DB_ToDoList.sqlite";
 
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
 
-                // Удаление существующих данных из таблицы ToDoList
                 using (var command = new SQLiteCommand("DELETE FROM ToDoList", connection))
                 {
                     command.ExecuteNonQuery();
@@ -140,7 +138,6 @@ namespace Todolist_in_WPF
 
         private void RefreshDataGrid()
         {
-            // Обновление отображаемых данных в DataGrid
             TaskRepository taskRepository = new TaskRepository();
             tasks = taskRepository.ReadAllTasks();
             dataGridTasks.ItemsSource = tasks;
@@ -172,15 +169,12 @@ namespace Todolist_in_WPF
         {
             if (selectedTaskForEdit != null)
             {
-                // Обновление полей выбранной задачи
                 selectedTaskForEdit.Title = txtFilter3.Text;
                 selectedTaskForEdit.Description = txtFilter2.Text;
 
-                // Обновление задачи в базе данных
                 TaskRepository taskRepository = new TaskRepository();
                 taskRepository.Update(selectedTaskForEdit);
 
-                // Обновление отображаемых данных в DataGrid
                 tasks = taskRepository.ReadAllTasks();
                 dataGridTasks.ItemsSource = tasks;
                 dataGridTasks.Items.Refresh();
@@ -189,12 +183,67 @@ namespace Todolist_in_WPF
 
         private void Account_Button_Click(object sender, RoutedEventArgs e)
         {
-            Account accountControl = new Account(); // Создание экземпляра вашего UserControl
+            MainGrid.Children.Clear();
+
+            Account accountControl = new Account(); 
 
             if (MainGrid != null)
             {
                 Grid.SetColumn(accountControl, 1);
                 MainGrid.Children.Add(accountControl);
+            }
+        }
+
+        private void Btn_Tasks(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Children.Clear();
+
+            Tasks tasksControl = new Tasks();
+
+            if (MainGrid != null)
+            {
+                Grid.SetColumn(tasksControl, 1);
+                MainGrid.Children.Add(tasksControl);
+            }
+
+        }
+
+        private void Btn_Calendar(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Children.Clear();
+
+            View.Calendar calendarControl = new View.Calendar();
+
+            if (MainGrid != null)
+            {
+                Grid.SetColumn(calendarControl, 1);
+                MainGrid.Children.Add(calendarControl);
+            }
+        }
+
+        private void Btn_Notes(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Children.Clear();
+
+            Notes notesControl = new Notes();
+
+            if (MainGrid != null)
+            {
+                Grid.SetColumn(notesControl, 1);
+                MainGrid.Children.Add(notesControl);
+            }
+        }
+
+        private void Btn_Contacts(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Children.Clear();
+
+            Contacts contactsControl = new Contacts();
+
+            if (MainGrid != null)
+            {
+                Grid.SetColumn(contactsControl, 1);
+                MainGrid.Children.Add(contactsControl);
             }
         }
     }
