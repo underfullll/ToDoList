@@ -287,3 +287,19 @@ C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Deb
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Calendar.baml
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Contacts.baml
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Notes.baml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Styles\Image.baml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Styles\Page.baml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Styles\Text.baml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Account.g.cs
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Calendar.g.cs
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Contacts.g.cs
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Notes.g.cs
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Tasks.g.cs
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Todolist_in_WPF_MarkupCompile.lref
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\Utilities\DataTemplate.baml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Account.baml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Calendar.baml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Contacts.baml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Notes.baml
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\Todolist_in_WPF\obj\Debug\View\Tasks.baml

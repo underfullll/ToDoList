@@ -8,14 +8,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="880"
     Height="720"
-    Background="White"
     mc:Ignorable="d">
 
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Margin="30,20,20,20">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -30,7 +29,7 @@
             <Button
                 Margin="0,0,20,0"
                 HorizontalAlignment="Right"
-                Style="{StaticResource topButon}">
+                Style="{StaticResource topButon}" Click="Button_Click_DeliteOll">
                 <Icon:PackIconMaterial Kind="Delete" />
             </Button>
         </Grid>
@@ -50,7 +49,7 @@
             Grid.Row="4"
             Margin="670,12,0,13"
             HorizontalAlignment="Left"
-            Style="{StaticResource addButon}">
+            Style="{StaticResource addButon}" Click="Button_Click_Add">
             <StackPanel Orientation="Horizontal">
                 <Icon:PackIconMaterial
                     Width="11"
@@ -67,7 +66,7 @@
             Grid.Row="4"
             Margin="630,12,0,13"
             HorizontalAlignment="Left"
-            Style="{StaticResource DoneButon}">
+            Style="{StaticResource DoneButon}" Click="Button_Click_Done">
             <StackPanel Orientation="Horizontal">
                 <Icon:PackIconMaterial
                     Width="11"
@@ -198,17 +197,16 @@
                             <StackPanel Orientation="Horizontal">
 
 
-                                <Button x:Name="EditTaskButton" Style="{StaticResource gridEditButon}">
+                                <Button x:Name="EditTaskButton" Style="{StaticResource gridEditButon}" Click="EditTaskButton_Click">
                                     <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
                                 </Button>
-                                <Button x:Name="DeleteTaskButton" Style="{StaticResource gridRemoveButon}">
+                                <Button x:Name="DeleteTaskButton" Style="{StaticResource gridRemoveButon}" Click="DeleteTaskButton_Click">
                                     <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource pagingButtonIcon}" />
                                 </Button>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

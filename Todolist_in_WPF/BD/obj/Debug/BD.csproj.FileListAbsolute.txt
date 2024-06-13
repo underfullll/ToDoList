@@ -32,3 +32,5 @@ C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WP
 C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.csproj.Up2Date
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.csproj.GenerateResource.cache
 C:\Users\anton\Desktop\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.Properties.Resources.resources
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.Properties.Resources.resources
+C:\Users\anton\OneDrive\Рабочий стол\projects\ToDoList\Todolist_in_WPF\BD\obj\Debug\BD.csproj.GenerateResource.cache

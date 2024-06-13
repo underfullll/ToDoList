@@ -42,7 +42,7 @@
 
             <!--  Menu Icon  -->
             <Menu:Btn
-                Margin="10,0,0,650"
+                Margin="10,20,0,650"
                 Click="Account_Button_Click"
                 Command="{Binding AccountCommand}"
                 Style="{StaticResource TopBtnStyle}">
@@ -294,8 +294,7 @@
             <!--  Main Section  -->
             <Grid
                 Name="MainGrid"
-                Grid.Column="1"
-                Margin="30,20,20,20">
+                Grid.Column="1">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
@@ -307,17 +306,17 @@
                 </Grid.RowDefinitions>
 
                 <!--  DeleteOll Buttons  -->
-                <Grid>
+                <!--<Grid>
                     <Button
                         Margin="0,0,20,0"
                         HorizontalAlignment="Right"
                         Style="{StaticResource topButon}">
                         <Icon:PackIconMaterial Kind="Delete" />
                     </Button>
-                </Grid>
+                </Grid>-->
 
                 <!--  Page Title  -->
-                <TextBlock
+                <!--<TextBlock
                     Grid.Row="1"
                     Margin="0,20,0,0"
                     HorizontalAlignment="Left"
@@ -326,7 +325,7 @@
                     Foreground="Black"
                     Text="Tasks" />
 
-                <!--  Add Button  -->
+                --><!--  Add Button  --><!--
                 <Button
                     Grid.Row="4"
                     Margin="670,12,0,13"
@@ -344,7 +343,7 @@
                     </StackPanel>
                 </Button>
 
-                <!--  Complited Button  -->
+                --><!--  Complited Button  --><!--
                 <Button
                     Grid.Row="4"
                     Margin="630,12,0,13"
@@ -362,14 +361,14 @@
                     </StackPanel>
                 </Button>
 
-                <!--  Seprator  -->
+                --><!--  Seprator  --><!--
                 <Separator
                     Grid.Row="3"
                     Height="1"
                     Margin="0,-1,0,10"
                     Background="Black" />
 
-                <!--  Counter Title  -->
+                --><!--  Counter Title  --><!--
                 <TextBlock
                     Grid.Row="4"
                     HorizontalAlignment="Left"
@@ -379,7 +378,7 @@
                     Foreground="Black"
                     Text="Day Month Year" />
 
-                <!--  Deskription Tasks Textbox  -->
+                --><!--  Deskription Tasks Textbox  --><!--
                 <Grid
                     Grid.Row="4"
                     Width="200"
@@ -399,7 +398,7 @@
 
                     <TextBox x:Name="txtFilter1" Style="{StaticResource txtFilter}" />
                 </Grid>
-                <!--  Name Tasks Textbox  -->
+                --><!--  Name Tasks Textbox  --><!--
                 <Grid
                     Grid.Row="4"
                     Width="200"
@@ -419,7 +418,7 @@
                     <TextBox x:Name="txtFilter" Style="{StaticResource txtFilter}" />
                 </Grid>
 
-                <!--  Tasks Datagrid  -->
+                --><!--  Tasks Datagrid  --><!--
                 <DataGrid
                     x:Name="dataGridTasks"
                     Grid.Row="5"
@@ -497,9 +496,8 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
                     </DataGrid.Columns>
-                </DataGrid>
+                </DataGrid>-->
             </Grid>
         </Grid>
     </Border>
