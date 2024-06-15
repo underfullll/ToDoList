@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="Todolist_in_WPF.View.Login"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:local="clr-namespace:Todolist_in_WPF.View"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+Width="880"
+Height="720"
+mc:Ignorable="d">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </UserControl.Resources>
+
+    <Grid Name="MainGrid" Grid.Column="1" Margin="30,20,20,20" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Page Title  -->
+        <TextBlock
+    Grid.Row="1"
+    Margin="0,20,0,0"
+    HorizontalAlignment="Left"
+    FontSize="32"
+    FontWeight="SemiBold"
+    Foreground="Black"
+    Text="Log in" />
+
+        <!--  Add Button  -->
+        <Button
+            Margin="10,246,0,296"
+            Grid.Row="5"
+            Style="{StaticResource addButon}" HorizontalAlignment="Left" Width="200">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Log in" />
+            </StackPanel>
+        </Button>
+        
+        <!--  Registration Button  --><!--
+        <Button
+    Margin="10,10,0,525"
+    Grid.Row="5"
+    Style="{StaticResource registrationButon}" HorizontalAlignment="Left" Click="Registration_Button" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Registration" />
+            </StackPanel>
+        </Button>
+
+        --><!--  Log in Button  --><!--
+
+        <Button
+Margin="115,10,0,525"
+Grid.Row="5"
+Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Log in" />
+            </StackPanel>
+        </Button>-->
+
+
+        <!--  Seprator  -->
+        <Separator
+    Margin="0 55 0 0 "
+    Grid.Row="1"
+    Height="1"
+    Background="Black" />
+
+
+        <!--  Menu Logo  -->
+        <Border Grid.Row="5"
+        Width="80"
+        Height="80"
+        Margin="10,-400,0,0"
+        Padding="3"
+        HorizontalAlignment="Left"
+        Background="White"
+        CornerRadius="100">
+            <Grid>
+                <Ellipse>
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Source/None_Account.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Button Style="{StaticResource gridEditButon}" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
+                </Button>
+            </Grid>
+        </Border>
+
+
+        <!--  Deskription Tasks Textbox  -->
+        <Grid
+            Grid.Row="5"
+            Width="200"
+            Margin="10,-150,0,0"
+            HorizontalAlignment="Left">
+            <TextBox
+                x:Name="txtFilterPassword"
+                Margin="15,0"
+                VerticalAlignment="Center"
+                Panel.ZIndex="1"
+                Foreground="Black"
+                IsHitTestVisible="True"
+                IsReadOnly="False"
+                Text="Password"
+                Visibility="{Binding Text.IsEmpty, Converter={StaticResource BoolToVis}, ElementName=txtFilter1}" />
+
+
+            <TextBox x:Name="txtFilterPassword1" Style="{StaticResource txtFilter}" />
+        </Grid>
+        <!--  Name Tasks Textbox  -->
+        <Grid
+            Grid.Row="5"
+            Width="200"
+            Margin="10,-250,0,0"
+            HorizontalAlignment="Left">
+            <TextBox
+                x:Name="txtFilterUsername"
+                Margin="15,0"
+                VerticalAlignment="Center"
+                Panel.ZIndex="1"
+                Foreground="Black"
+                IsHitTestVisible="True"
+                IsReadOnly="False"
+                Text="Username"
+                Visibility="{Binding Text.IsEmpty, Converter={StaticResource BoolToVis}, ElementName=txtFilter1}" />
+
+            <TextBox x:Name="txtFilterUsername1" Style="{StaticResource txtFilter}" />
+        </Grid>
+    </Grid>
+</UserControl>

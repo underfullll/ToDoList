@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
+using ToDoListLibrary;
 
 namespace BD
 {
     public class TaskRepository
     {
-        //private string connectionString = "Data Source = C:\\Users\\anton\\Desktop\\projects\\ToDoList\\Todolist_in_WPF\\BD\\BD\\DB_ToDoList.db; FailIfMissing=False";
 
         private static string connectionString = Resources.DB_ConnectionString;
 
@@ -24,12 +24,14 @@ namespace BD
 
         static List<string> migrationList = new List<string>()
         {
-            "CREATE TABLE \"ToDoList\" (" +
-            "\"ID\"    INTEGER NOT NULL," +
-            "\"Title\" TEXT," +
-            "\"Description\"   TEXT," +
-            "\"IsCompleted\"   INTEGER," +
-            "PRIMARY KEY(\"ID\" AUTOINCREMENT))"
+
+    "CREATE TABLE \"ToDoList\" (" +
+    "\"ID\"    INTEGER NOT NULL," +
+    "\"Title\" TEXT," +
+    "\"Description\"   TEXT," +
+    "\"IsCompleted\"   INTEGER," +
+    "\"UserID\" INTEGER," +
+    "FOREIGN KEY(\"UserID\") REFERENCES \"Users\"(\"ID\"))"
         };
 
         public static void MigrateDataBase()
@@ -48,6 +50,8 @@ namespace BD
 
             }
         }
+
+        
 
         public void Create(ToDoListLibrary.Task task)
         {
@@ -70,8 +74,6 @@ namespace BD
         public List<ToDoListLibrary.Task> ReadAllTasks()
         {
             List<ToDoListLibrary.Task> tasks = new List<ToDoListLibrary.Task>();
-
-
 
             Console.WriteLine(System.IO.Directory.GetCurrentDirectory());
 
@@ -135,5 +137,6 @@ namespace BD
                 }
             }
         }
+       
     }
 }

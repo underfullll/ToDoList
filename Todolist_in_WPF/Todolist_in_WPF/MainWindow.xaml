@@ -1,5 +1,4 @@
-﻿
-<Window
+﻿<Window
     x:Class="Todolist_in_WPF.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -43,7 +42,7 @@
             <!--  Menu Icon  -->
             <Menu:Btn
                 Margin="10,20,0,650"
-                Click="Account_Button_Click"
+                Click="Log_in_Button"
                 Command="{Binding AccountCommand}"
                 Style="{StaticResource TopBtnStyle}">
                 <Icon:PackIconMaterial
@@ -85,17 +84,7 @@
                         FontSize="19"
                         FontWeight="SemiBold"
                         Foreground="White"
-                        Text="Anton Entertainment"
-                        TextAlignment="Center" />
-
-                    <!--  Menu Titles  -->
-                    <TextBlock
-                        Margin="5,25,0,10"
-                        DockPanel.Dock="Top"
-                        FontSize="14"
-                        FontWeight="SemiBold"
-                        Foreground="White"
-                        Text="To-do list"
+                        Text="User Name"
                         TextAlignment="Center" />
 
                     <!--  Menu Seprator  -->
@@ -298,17 +287,30 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
+
                 </Grid.RowDefinitions>
+
+                <!--  Registration Button  -->
+                <Button
+    Margin="345,350,0,185"
+    Style="{StaticResource registrationButon}" HorizontalAlignment="Left" Click="Registration_Button" >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Registration" />
+                    </StackPanel>
+                </Button>
+
+                <!--  Log in Button  -->
+
+                <Button
+Margin="445,350,0,185"
+Style="{StaticResource registrationButon}" HorizontalAlignment="Left" Click="Log_in_Button" >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Log in" />
+                    </StackPanel>
+                </Button>
 
                 <!--  Page Title  -->
                 <TextBlock
-                    Grid.Row="1"
-                    Margin="0,300,0,0"
                     HorizontalAlignment="Center"
                     FontSize="80"
                     FontWeight="SemiBold"

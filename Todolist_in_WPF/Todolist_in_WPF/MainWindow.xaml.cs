@@ -19,7 +19,6 @@ namespace Todolist_in_WPF
         public MainWindow()
         {
             InitializeComponent();
-            EnsureDataBase();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -31,17 +30,6 @@ namespace Todolist_in_WPF
         }
         private bool IsMaximizad = false;
         private List<ToDoListLibrary.Task> tasks = new List<ToDoListLibrary.Task>();
-        private ToDoListLibrary.Task selectedTaskForEdit;
-        private int nextId = 1;
-
-        private void EnsureDataBase()
-        {
-            if (!TaskRepository.IsDatabaseExist())
-            {
-                TaskRepository.CreateDataBase();
-                TaskRepository.MigrateDataBase();
-            }
-        }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -67,19 +55,6 @@ namespace Todolist_in_WPF
         private void Button_Click_Exit(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void Account_Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainGrid.Children.Clear();
-
-            Account accountControl = new Account(); 
-
-            if (MainGrid != null)
-            {
-                Grid.SetColumn(accountControl, 1);
-                MainGrid.Children.Add(accountControl);
-            }
         }
 
         private void Btn_Tasks(object sender, RoutedEventArgs e)
@@ -133,6 +108,34 @@ namespace Todolist_in_WPF
                 Grid.SetColumn(contactsControl, 1);
                 MainGrid.Children.Add(contactsControl);
             }
+        }
+
+        private void Registration_Button(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Children.Clear();
+
+            Registration registrationControl = new Registration();
+
+            if (MainGrid != null)
+            {
+                Grid.SetColumn(registrationControl, 1);
+                MainGrid.Children.Add(registrationControl);
+            }
+
+        }
+
+        private void Log_in_Button(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Children.Clear();
+
+            Login loginControl = new Login();
+
+            if (MainGrid != null)
+            {
+                Grid.SetColumn(loginControl, 1);
+                MainGrid.Children.Add(loginControl);
+            }
+
         }
     }
 

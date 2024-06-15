@@ -32,7 +32,6 @@ namespace Todolist_in_WPF.View
             EnsureDataBase();
             UpdateTasksFromDatabase();
         }
-        private bool IsMaximizad = false;
         private List<ToDoListLibrary.Task> tasks = new List<ToDoListLibrary.Task>();
         private ToDoListLibrary.Task selectedTaskForEdit;
         private int nextId = 1;
