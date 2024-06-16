@@ -34,6 +34,7 @@ mc:Ignorable="d">
 
         <!--  Add Button  -->
         <Button
+            Click="Button_Click_Login"
             Margin="10,246,0,296"
             Grid.Row="5"
             Style="{StaticResource addButon}" HorizontalAlignment="Left" Width="200">
@@ -42,7 +43,7 @@ mc:Ignorable="d">
             </StackPanel>
         </Button>
         
-        <!--  Registration Button  --><!--
+        <!--  Registration Button  -->
         <Button
     Margin="10,10,0,525"
     Grid.Row="5"
@@ -52,7 +53,7 @@ mc:Ignorable="d">
             </StackPanel>
         </Button>
 
-        --><!--  Log in Button  --><!--
+        <!--  Log in Button  -->
 
         <Button
 Margin="115,10,0,525"
@@ -61,7 +62,7 @@ Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Log in" />
             </StackPanel>
-        </Button>-->
+        </Button>
 
 
         <!--  Seprator  -->

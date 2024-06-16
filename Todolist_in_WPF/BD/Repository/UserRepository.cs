@@ -96,8 +96,14 @@ namespace BD.Repository
             return users;
         }
 
-        public void CreateUsers(ToDoListLibrary.User user)
+        public void CreateUser(ToDoListLibrary.User user)
         {
+            if (UserExists(user.Username))
+            {
+                Console.WriteLine("User with the same username already exists.");
+                return;
+            }
+
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -162,6 +168,26 @@ namespace BD.Repository
             }
 
             return users;
+        }
+
+        public bool UserExists(string username)
+        {
+            bool userExists = false;
+
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username";
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    userExists = count > 0;
+                }
+            }
+
+            return userExists;
         }
     }
 }
