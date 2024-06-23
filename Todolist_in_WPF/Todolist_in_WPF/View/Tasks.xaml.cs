@@ -1,23 +1,9 @@
 ﻿using BD;
-using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Data.SQLite;
-using System.Windows.Markup;
-using Todolist_in_WPF.Utilities;
-using Todolist_in_WPF.View;
-using Todolist_in_WPF.ViewModel;
 
 namespace Todolist_in_WPF.View
 {
@@ -29,6 +15,8 @@ namespace Todolist_in_WPF.View
         public Tasks()
         {
             InitializeComponent();
+            List<ToDoListLibrary.Task> tasksToDisplay = FetchTasksFromDatabase();
+            DisplayUserTasks(tasksToDisplay);
             EnsureDataBase();
             UpdateTasksFromDatabase();
         }
@@ -51,13 +39,34 @@ namespace Todolist_in_WPF.View
             List<ToDoListLibrary.Task> tasksFromDatabase = taskRepository.ReadAllTasks();
 
 
-            tasks.Clear();
+            dataGridTasks.Items.Clear();
             foreach (var task in tasksFromDatabase)
             {
                 tasks.Add(task);
             }
 
             dataGridTasks.ItemsSource = tasks;
+        }
+
+        private void DisplayUserTasks(List<ToDoListLibrary.Task> tasks)
+        {
+            // Очистить предыдущий список задач
+            dataGridTasks.Items.Clear();
+
+            // Добавить все задачи в список для отображения
+            foreach (var task in tasks)
+            {
+                // Создать текстовое представление задачи для отображения в ListBox
+                string taskDescription = $"{task.Title}: {task.Description}";
+
+                // Добавить задачу в ListBox
+                dataGridTasks.Items.Add(taskDescription);
+            }
+        }
+        private List<ToDoListLibrary.Task> FetchTasksFromDatabase()
+        {
+            TaskRepository taskRepository = new TaskRepository();
+            return taskRepository.ReadAllTasks();
         }
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
@@ -77,15 +86,11 @@ namespace Todolist_in_WPF.View
                 IsCompleted = false,
             };
 
+            int userId = 8;
             TaskRepository taskRepository = new TaskRepository();
-            taskRepository.Create(newTask);
+            taskRepository.Create(newTask, userId);
 
-            tasks = taskRepository.ReadAllTasks();
-
-            dataGridTasks.ItemsSource = tasks;
-
-            txtFilter3.Text = "Name Tasks";
-            txtFilter2.Text = "Description Tasks";
+            UpdateTasksFromDatabase();
 
             dataGridTasks.Items.Refresh();
         }

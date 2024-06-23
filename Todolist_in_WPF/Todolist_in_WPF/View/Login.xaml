@@ -99,6 +99,7 @@ Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
         <Grid
             Grid.Row="5"
             Width="200"
+            Height="60"
             Margin="10,-150,0,0"
             HorizontalAlignment="Left">
             <TextBox
@@ -116,9 +117,10 @@ Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
             <TextBox x:Name="txtFilterPassword1" Style="{StaticResource txtFilter}" />
         </Grid>
         <!--  Name Tasks Textbox  -->
-        <Grid
+        <Grid 
             Grid.Row="5"
             Width="200"
+            Height="60"
             Margin="10,-250,0,0"
             HorizontalAlignment="Left">
             <TextBox

@@ -49,6 +49,29 @@ namespace BD.Repository
 
             }
         }
+
+
+        public int GetUserIdByUsername(string username)
+        {
+            int userId = 0;
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT ID FROM Users WHERE Username = @Username";
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    var result = command.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        userId = Convert.ToInt32(result);
+                    }
+                }
+            }
+
+            return userId;
+        }
         public void UpdateUser(ToDoListLibrary.User user)
         {
             using (var connection = new SQLiteConnection(connectionString))

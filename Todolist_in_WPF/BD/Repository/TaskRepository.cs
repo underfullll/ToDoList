@@ -26,13 +26,47 @@ namespace BD
         {
 
     "CREATE TABLE \"ToDoList\" (" +
-    "\"ID\"    INTEGER NOT NULL," +
+    "\"ID\" INTEGER NOT NULL," +
     "\"Title\" TEXT," +
-    "\"Description\"   TEXT," +
-    "\"IsCompleted\"   INTEGER," +
-    "\"UserID\" INTEGER," +
-    "FOREIGN KEY(\"UserID\") REFERENCES \"Users\"(\"ID\"))"
+    "\"Description\" TEXT," +
+    "\"IsCompleted\" INTEGER," +
+    "\"UserID\" INTEGER," + 
+    "FOREIGN KEY(\"UserID\") REFERENCES \"Users\"(\"ID\")" +
+    ")"
         };
+
+        public List<Task> GetTasksByUserId(int userId)
+        {
+            List<Task> tasks = new List<Task>();
+
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM ToDoList WHERE UserID = @UserID";
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", userId);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Task task = new Task
+                            {
+                                Id = reader.GetInt32(0),
+                                Title = reader.GetString(1),
+                                Description = reader.GetString(2),
+                                IsCompleted = reader.GetBoolean(3)
+                            };
+
+                            tasks.Add(task);
+                        }
+                    }
+                }
+            }
+
+            return tasks;
+        }
 
         public static void MigrateDataBase()
         {
@@ -51,24 +85,55 @@ namespace BD
             }
         }
 
-        
-
-        public void Create(ToDoListLibrary.Task task)
+        public void Create(ToDoListLibrary.Task task, int userId)
         {
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "INSERT INTO ToDoList (ID, Title, Description, IsCompleted) VALUES (@Id, @Title, @Description, @IsCompleted)";
+                string query = "INSERT INTO ToDoList (ID, Title, Description, IsCompleted, UserID) VALUES (@Id, @Title, @Description, @IsCompleted, @UserID)";
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", task.Id);
                     command.Parameters.AddWithValue("@Title", task.Title);
                     command.Parameters.AddWithValue("@Description", task.Description);
                     command.Parameters.AddWithValue("@IsCompleted", task.IsCompleted ? 1 : 0);
+                    command.Parameters.AddWithValue("@UserID", userId);
                     command.ExecuteNonQuery();
                 }
             }
+        }
+        public List<ToDoListLibrary.Task> ReadUserTasks(int userId)
+        {
+            List<ToDoListLibrary.Task> tasks = new List<ToDoListLibrary.Task>();
+
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM ToDoList WHERE UserID = @UserID";
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", userId);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ToDoListLibrary.Task task = new ToDoListLibrary.Task
+                            {
+                                Id = reader.GetInt32(0),
+                                Title = reader.GetString(1),
+                                Description = reader.GetString(2),
+                                IsCompleted = reader.GetBoolean(3)
+                            };
+
+                            tasks.Add(task);
+                        }
+                    }
+                }
+            }
+
+            return tasks;
         }
 
         public List<ToDoListLibrary.Task> ReadAllTasks()

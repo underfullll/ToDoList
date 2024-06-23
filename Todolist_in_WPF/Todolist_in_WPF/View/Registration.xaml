@@ -22,6 +22,27 @@ mc:Ignorable="d">
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <!--  Registration Button  -->
+        <Button
+    Margin="10,10,0,525"
+    Grid.Row="5"
+    Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Registration" />
+            </StackPanel>
+        </Button>
+
+        <!--  Log in Button  -->
+
+        <Button
+Margin="115,10,0,525"
+Grid.Row="5"
+Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Log in" />
+            </StackPanel>
+        </Button>
+
         <!--  Page Title  -->
         <TextBlock
     Grid.Row="1"
