@@ -1,19 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BD.Repository
 {
-    class TaskManager
+    public class TaskManager
     {
-        private TaskRepository taskRepository;
+        public ObservableCollection<ToDoListLibrary.Task> Tasks { get; private set; }
 
         public TaskManager()
         {
-            taskRepository = new TaskRepository();
+            Tasks = new ObservableCollection<ToDoListLibrary.Task>();
+            UpdateTasksFromDatabase();
         }
+
+        public void UpdateTasksFromDatabase()
+        {
+            TaskRepository taskRepository = new TaskRepository();
+            Tasks.Clear();
+            foreach (var task in taskRepository.ReadAllTasks())
+            {
+                Tasks.Add(task);
+            }
+        }
+
+        private TaskRepository taskRepository;
 
         public void FetchAndDisplayUserTasks(int userId)
         {

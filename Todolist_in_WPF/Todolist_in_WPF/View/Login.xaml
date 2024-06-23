@@ -102,17 +102,14 @@ Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
             Height="60"
             Margin="10,-150,0,0"
             HorizontalAlignment="Left">
-            <TextBox
+            <PasswordBox
                 x:Name="txtFilterPassword"
                 Margin="15,0"
                 VerticalAlignment="Center"
                 Panel.ZIndex="1"
                 Foreground="Black"
                 IsHitTestVisible="True"
-                IsReadOnly="False"
-                Text="Password"
                 Visibility="{Binding Text.IsEmpty, Converter={StaticResource BoolToVis}, ElementName=txtFilter1}" />
-
 
             <TextBox x:Name="txtFilterPassword1" Style="{StaticResource txtFilter}" />
         </Grid>
@@ -134,7 +131,7 @@ Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
                 Text="Username"
                 Visibility="{Binding Text.IsEmpty, Converter={StaticResource BoolToVis}, ElementName=txtFilter1}" />
 
-            <TextBox x:Name="txtFilterUsername1" Style="{StaticResource txtFilter}" />
+            <TextBox x:Name="txtFilterUsername1" Style="{StaticResource txtFilter}"  />
         </Grid>
     </Grid>
 </UserControl>

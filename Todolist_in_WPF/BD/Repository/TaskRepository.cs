@@ -20,6 +20,7 @@ namespace BD
         public static void CreateDataBase()
         {
             SQLiteConnection.CreateFile(connectionString);
+            MigrateDataBase();
         }
 
         static List<string> migrationList = new List<string>()
@@ -58,13 +59,11 @@ namespace BD
                                 Description = reader.GetString(2),
                                 IsCompleted = reader.GetBoolean(3)
                             };
-
                             tasks.Add(task);
                         }
                     }
                 }
             }
-
             return tasks;
         }
 
@@ -73,28 +72,30 @@ namespace BD
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-
-                foreach (var migration in migrationList)
+                string migrationQuery = "CREATE TABLE IF NOT EXISTS \"ToDoList\" (" +
+                                        "\"ID\" INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                        "\"Title\" TEXT NOT NULL," +
+                                        "\"Description\" TEXT," +
+                                        "\"IsCompleted\" INTEGER NOT NULL DEFAULT 0," +
+                                        "\"UserID\" INTEGER NOT NULL," +
+                                        "FOREIGN KEY(\"UserID\") REFERENCES \"Users\"(\"ID\")" +
+                                        ");";
+                using (var command = new SQLiteCommand(migrationQuery, connection))
                 {
-                    using (var command = new SQLiteCommand(migration, connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
+                    command.ExecuteNonQuery();
                 }
-
             }
         }
 
-        public void Create(ToDoListLibrary.Task task, int userId)
-        {
+            public void Create(ToDoListLibrary.Task task, int userId)
+            {
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "INSERT INTO ToDoList (ID, Title, Description, IsCompleted, UserID) VALUES (@Id, @Title, @Description, @IsCompleted, @UserID)";
+                string query = "INSERT INTO ToDoList (Title, Description, IsCompleted, UserID) VALUES (@Title, @Description, @IsCompleted, @UserID)";
                 using (var command = new SQLiteCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", task.Id);
                     command.Parameters.AddWithValue("@Title", task.Title);
                     command.Parameters.AddWithValue("@Description", task.Description);
                     command.Parameters.AddWithValue("@IsCompleted", task.IsCompleted ? 1 : 0);
@@ -103,9 +104,9 @@ namespace BD
                 }
             }
         }
-        public List<ToDoListLibrary.Task> ReadUserTasks(int userId)
+        public List<Task> ReadUserTasks(int userId)
         {
-            List<ToDoListLibrary.Task> tasks = new List<ToDoListLibrary.Task>();
+            List<Task> tasks = new List<Task>();
 
             using (var connection = new SQLiteConnection(connectionString))
             {
@@ -119,22 +120,21 @@ namespace BD
                     {
                         while (reader.Read())
                         {
-                            ToDoListLibrary.Task task = new ToDoListLibrary.Task
+                            Task task = new Task
                             {
                                 Id = reader.GetInt32(0),
                                 Title = reader.GetString(1),
                                 Description = reader.GetString(2),
                                 IsCompleted = reader.GetBoolean(3)
                             };
-
                             tasks.Add(task);
                         }
                     }
                 }
             }
-
             return tasks;
         }
+
 
         public List<ToDoListLibrary.Task> ReadAllTasks()
         {

@@ -22,6 +22,7 @@ namespace BD.Repository
         public static void CreateDataBase()
         {
             SQLiteConnection.CreateFile(connectionString);
+            MigrateDataBase();
         }
 
         static List<string> migrationList = new List<string>()
@@ -39,16 +40,20 @@ namespace BD.Repository
             {
                 connection.Open();
 
-                foreach (var migration in migrationList)
+                string migrationQuery = "CREATE TABLE IF NOT EXISTS \"Users\" (" +
+                                        "\"ID\" INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                        "\"Username\" TEXT NOT NULL UNIQUE," +
+                                        "\"Password\" TEXT NOT NULL," +
+                                        "\"PasswordHash\" TEXT," + 
+                                        "\"Salt\" TEXT" +            
+                                        ")";
+                using (var command = new SQLiteCommand(migrationQuery, connection))
                 {
-                    using (var command = new SQLiteCommand(migration, connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
+                    command.ExecuteNonQuery();
                 }
-
             }
         }
+
 
 
         public int GetUserIdByUsername(string username)
@@ -119,7 +124,7 @@ namespace BD.Repository
             return users;
         }
 
-        public void CreateUser(ToDoListLibrary.User user)
+        public void CreateUser(User user)
         {
             if (UserExists(user.Username))
             {
@@ -131,11 +136,12 @@ namespace BD.Repository
             {
                 connection.Open();
 
-                string query = "INSERT INTO Users (Username, Password) VALUES (@Username, @Password)";
+                string query = "INSERT INTO Users (Username, PasswordHash, Salt) VALUES (@Username, @PasswordHash, @Salt)";
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Username", user.Username);
-                    command.Parameters.AddWithValue("@Password", user.Password);
+                    command.Parameters.AddWithValue("@PasswordHash", user.PasswordHash);
+                    command.Parameters.AddWithValue("@Salt", user.Salt);
                     command.ExecuteNonQuery();
                 }
             }

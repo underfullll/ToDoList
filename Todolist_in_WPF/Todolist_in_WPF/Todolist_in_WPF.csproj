@@ -181,6 +181,7 @@
     <Compile Include="Utilities\ViewModelBase.cs" />
     <Compile Include="ViewModel\AccountVM.cs" />
     <Compile Include="ViewModel\NavigationVM.cs" />
+    <Compile Include="ViewModel\TaskViewModel.cs" />
     <Compile Include="View\Calendar.xaml.cs">
       <DependentUpon>Calendar.xaml</DependentUpon>
     </Compile>
