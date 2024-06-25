@@ -15,17 +15,34 @@ namespace Todolist_in_WPF.View
     /// </summary>
     public partial class Tasks : UserControl
     {
-        private TaskManager taskManager;
+        private int userId = 0;
+        private List<ToDoListLibrary.Task> tasks = new List<ToDoListLibrary.Task>();
+        private ToDoListLibrary.Task selectedTaskForEdit;
+        private int nextId = 1;
+        private TaskRepository taskRepository;
+
         public Tasks()
         {
             InitializeComponent();
             EnsureDataBase();
-            taskManager = new TaskManager();
-            dataGridTasks.ItemsSource = taskManager.Tasks;
+            taskRepository = new TaskRepository();
+            LoadUserTasks();
         }
-        private ObservableCollection<ToDoListLibrary.Task> tasks = new ObservableCollection<ToDoListLibrary.Task>();
-        private ToDoListLibrary.Task selectedTaskForEdit;
-        private int nextId = 1;
+        private void LoadUserTasks()
+        {
+            List<ToDoListLibrary.Task> userTasks = taskRepository.ReadAllTasks(userId);
+
+            tasks.Clear();
+            tasks.AddRange(userTasks);
+
+            dataGridTasks.ItemsSource = tasks;
+        }
+        private void RefreshDataGrid()
+        {
+            tasks = taskRepository.ReadAllTasks(userId);
+            dataGridTasks.ItemsSource = tasks;
+            dataGridTasks.Items.Refresh();
+        }
 
         private void EnsureDataBase()
         {
@@ -35,15 +52,15 @@ namespace Todolist_in_WPF.View
                 TaskRepository.MigrateDataBase();
             }
         }
-        private void UpdateTasksFromDatabase()
-        {
-            TaskRepository taskRepository = new TaskRepository();
-            tasks = new ObservableCollection<ToDoListLibrary.Task>(taskRepository.ReadAllTasks());
-            dataGridTasks.ItemsSource = tasks;
-        }
+
         private void Button_Click_Add(object sender, RoutedEventArgs e)
         {
-            int maxId = tasks.Count > 0 ? tasks.Max(task => task.Id) : 0;
+            if (tasks == null)
+            {
+                tasks = new List<ToDoListLibrary.Task>();
+            }
+
+            int maxId = tasks.Any() ? tasks.Max(task => task.Id) : 0;
             nextId = maxId + 1;
 
             ToDoListLibrary.Task newTask = new ToDoListLibrary.Task
@@ -52,13 +69,18 @@ namespace Todolist_in_WPF.View
                 Title = txtFilter3.Text,
                 Description = txtFilter2.Text,
                 IsCompleted = false,
+                UserId = userId
             };
 
-            int userId = 9;
-            TaskRepository taskRepository = new TaskRepository();
-            taskRepository.Create(newTask, userId);
+            taskRepository.Create(newTask);
 
-            UpdateTasksFromDatabase();
+            LoadUserTasks();
+
+            txtFilter3.Text = "Name Tasks";
+            txtFilter2.Text = "Description Tasks";
+
+
+            dataGridTasks.Items.Refresh();
         }
 
         private void Button_Click_DeliteOll(object sender, RoutedEventArgs e)
@@ -77,31 +99,28 @@ namespace Todolist_in_WPF.View
                 connection.Close();
             }
 
-            UpdateTasksFromDatabase();
+            RefreshDataGrid();
         }
 
         private void EditTaskButton_Click(object sender, RoutedEventArgs e)
         {
             selectedTaskForEdit = (ToDoListLibrary.Task)dataGridTasks.SelectedItem;
 
-            if (selectedTaskForEdit != null)
-            {
-                txtFilter3.Text = selectedTaskForEdit.Title;
-                txtFilter2.Text = selectedTaskForEdit.Description;
-            }
+            txtFilter3.Text = selectedTaskForEdit.Title;
+            txtFilter2.Text = selectedTaskForEdit.Description;
         }
 
         private void DeleteTaskButton_Click(object sender, RoutedEventArgs e)
         {
             ToDoListLibrary.Task selectedTask = (ToDoListLibrary.Task)dataGridTasks.SelectedItem;
 
-            if (selectedTask != null)
-            {
-                TaskRepository taskRepository = new TaskRepository();
-                taskRepository.Delete(selectedTask.Id);
+            tasks.Remove(selectedTask);
 
-                UpdateTasksFromDatabase();
-            }
+            TaskRepository taskRepository = new TaskRepository();
+            taskRepository.Delete(selectedTask.Id);
+
+            dataGridTasks.ItemsSource = tasks;
+            dataGridTasks.Items.Refresh();
         }
 
         private void Button_Click_Done(object sender, RoutedEventArgs e)
@@ -111,11 +130,13 @@ namespace Todolist_in_WPF.View
                 selectedTaskForEdit.Title = txtFilter3.Text;
                 selectedTaskForEdit.Description = txtFilter2.Text;
 
-                TaskRepository taskRepository = new TaskRepository();
                 taskRepository.Update(selectedTaskForEdit);
 
-                UpdateTasksFromDatabase();
+                tasks = taskRepository.ReadAllTasks(userId);
+                dataGridTasks.ItemsSource = tasks;
+                dataGridTasks.Items.Refresh();
             }
         }
     }
 }
+

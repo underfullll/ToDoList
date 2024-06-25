@@ -22,15 +22,14 @@ namespace BD.Repository
         public static void CreateDataBase()
         {
             SQLiteConnection.CreateFile(connectionString);
-            MigrateDataBase();
         }
 
         static List<string> migrationList = new List<string>()
         {
            "CREATE TABLE \"Users\" (" +
-    "\"Id\"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+    "\"UserId\"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
     "\"Username\" TEXT NOT NULL, " +
-    "\"Password\" TEXT NOT NULL" +
+    "\"Password\" TEXT NOT NULL, PRIMARY KEY(\"UserId\" AUTOINCREMENT)" +
     ")"
         };
 
@@ -40,42 +39,15 @@ namespace BD.Repository
             {
                 connection.Open();
 
-                string migrationQuery = "CREATE TABLE IF NOT EXISTS \"Users\" (" +
-                                        "\"ID\" INTEGER PRIMARY KEY AUTOINCREMENT," +
-                                        "\"Username\" TEXT NOT NULL UNIQUE," +
-                                        "\"Password\" TEXT NOT NULL," +
-                                        "\"PasswordHash\" TEXT," + 
-                                        "\"Salt\" TEXT" +            
-                                        ")";
-                using (var command = new SQLiteCommand(migrationQuery, connection))
+                foreach (var migration in migrationList)
                 {
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-
-
-
-        public int GetUserIdByUsername(string username)
-        {
-            int userId = 0;
-            using (var connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT ID FROM Users WHERE Username = @Username";
-                using (var command = new SQLiteCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Username", username);
-                    var result = command.ExecuteScalar();
-                    if (result != null && result != DBNull.Value)
+                    using (var command = new SQLiteCommand(migration, connection))
                     {
-                        userId = Convert.ToInt32(result);
+                        command.ExecuteNonQuery();
                     }
                 }
-            }
 
-            return userId;
+            }
         }
         public void UpdateUser(ToDoListLibrary.User user)
         {
@@ -83,12 +55,12 @@ namespace BD.Repository
             {
                 connection.Open();
 
-                string query = "UPDATE Users SET Username = @Username, Password = @Password WHERE ID = @ID";
+                string query = "UPDATE Users SET Username = @Username, Password = @Password WHERE UserId = @UserId";
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Username", user.Username);
                     command.Parameters.AddWithValue("@Password", user.Password);
-                    command.Parameters.AddWithValue("@Id", user.Id);
+                    command.Parameters.AddWithValue("@UserId", user.UserId);
                     command.ExecuteNonQuery();
                 }
             }
@@ -110,7 +82,7 @@ namespace BD.Repository
                         {
                             ToDoListLibrary.User user = new ToDoListLibrary.User
                             {
-                                Id = reader.GetInt32(0),
+                                UserId = reader.GetInt32(0),
                                 Username = reader.GetString(1),
                                 Password = reader.GetString(2)
                             };
@@ -124,7 +96,7 @@ namespace BD.Repository
             return users;
         }
 
-        public void CreateUser(User user)
+        public void CreateUser(ToDoListLibrary.User user)
         {
             if (UserExists(user.Username))
             {
@@ -136,12 +108,11 @@ namespace BD.Repository
             {
                 connection.Open();
 
-                string query = "INSERT INTO Users (Username, PasswordHash, Salt) VALUES (@Username, @PasswordHash, @Salt)";
+                string query = "INSERT INTO Users (Username, Password) VALUES (@Username, @Password)";
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Username", user.Username);
-                    command.Parameters.AddWithValue("@PasswordHash", user.PasswordHash);
-                    command.Parameters.AddWithValue("@Salt", user.Salt);
+                    command.Parameters.AddWithValue("@Password", user.Password);
                     command.ExecuteNonQuery();
                 }
             }
@@ -152,10 +123,10 @@ namespace BD.Repository
             {
                 connection.Open();
 
-                string query = "DELETE FROM Users WHERE Id = @Id";
+                string query = "DELETE FROM Users WHERE UserId = @UserId";
                 using (var command = new SQLiteCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", userId);
+                    command.Parameters.AddWithValue("@UserId", userId);
                     command.ExecuteNonQuery();
                 }
             }
@@ -164,7 +135,7 @@ namespace BD.Repository
         public static int GetMaxUserId()
         {
             List<User> users = GetAllUsersFromDatabase();
-            int maxId = users.Count > 0 ? users.Max(u => u.Id) : 0;
+            int maxId = users.Count > 0 ? users.Max(u => u.UserId) : 0;
             return maxId;
         }
 
@@ -185,7 +156,7 @@ namespace BD.Repository
                         {
                             User user = new User
                             {
-                                Id = reader.GetInt32(0),
+                                UserId = reader.GetInt32(0),
                                 Username = reader.GetString(1),
                                 Password = reader.GetString(2)
                             };

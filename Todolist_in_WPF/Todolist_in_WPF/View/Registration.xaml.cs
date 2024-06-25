@@ -36,28 +36,6 @@ namespace Todolist_in_WPF.View
         {
             return password.Length >= 8;
         }
-        public static string GenerateSalt()
-        {
-            byte[] salt = new byte[16];
-            new RNGCryptoServiceProvider().GetBytes(salt);
-            return Convert.ToBase64String(salt);
-        }
-
-        public static string HashPassword(string password, string salt)
-        {
-            byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
-            byte[] saltBytes = Convert.FromBase64String(salt);
-
-            byte[] combinedBytes = new byte[passwordBytes.Length + saltBytes.Length];
-            Array.Copy(passwordBytes, 0, combinedBytes, 0, passwordBytes.Length);
-            Array.Copy(saltBytes, 0, combinedBytes, passwordBytes.Length, saltBytes.Length);
-
-            using (var sha256 = SHA256.Create())
-            {
-                byte[] hashBytes = sha256.ComputeHash(combinedBytes);
-                return Convert.ToBase64String(hashBytes);
-            }
-        }
 
 
         private void EnsureDataBase()
@@ -77,44 +55,37 @@ namespace Todolist_in_WPF.View
 
         private void Button_Click_AddAccount(object sender, RoutedEventArgs e)
         {
-            string username = txtFilterUsername.Text;
-            string password = txtFilterPassword.Password;
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Please enter a valid username and password.");
-                return;
-            }
-
-            UserRepository userRepository = new UserRepository();
-
-            if (userRepository.UserExists(username))
-            {
-                MessageBox.Show("User already exists. Please choose a different username.");
-                return;
-            }
-
-            if (!IsValidPassword(password))
+            if (!IsValidPassword(txtFilterPassword.Password))
             {
                 MessageBox.Show("Please enter a valid password. It should be at least 8 characters long.");
                 return;
             }
 
-            string salt = GenerateSalt();
-            string hashedPassword = HashPassword(password, salt);
+            UserRepository userRepository = new UserRepository();
+
+            if (userRepository.UserExists(txtFilterUsername.Text))
+            {
+                MessageBox.Show("User already exists. Please choose a different username.");
+                return;
+            }
+
+            int maxUserId = UserRepository.GetMaxUserId();
+            int nextUserId = maxUserId + 1;
 
             User newUser = new User
             {
-                Username = username,
-                PasswordHash = hashedPassword,
-                Salt = salt
+                UserId = nextUserId,
+                Username = txtFilterUsername.Text,
+                Password = txtFilterPassword.Password,
             };
 
             userRepository.CreateUser(newUser);
 
-            UpdateUsersFromDatabase();
+            users = userRepository.ReadAllUsers();
 
             MessageBox.Show("User is registered.");
+
         }
     }
 }

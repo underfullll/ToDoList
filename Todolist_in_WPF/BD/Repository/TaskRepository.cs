@@ -20,135 +20,68 @@ namespace BD
         public static void CreateDataBase()
         {
             SQLiteConnection.CreateFile(connectionString);
-            MigrateDataBase();
         }
 
         static List<string> migrationList = new List<string>()
         {
 
     "CREATE TABLE \"ToDoList\" (" +
-    "\"ID\" INTEGER NOT NULL," +
+    "\"ID\"    INTEGER NOT NULL," +
     "\"Title\" TEXT," +
-    "\"Description\" TEXT," +
-    "\"IsCompleted\" INTEGER," +
-    "\"UserID\" INTEGER," + 
-    "FOREIGN KEY(\"UserID\") REFERENCES \"Users\"(\"ID\")" +
-    ")"
+    "\"Description\"   TEXT," +
+    "\"IsCompleted\"   INTEGER," +
+    "\"UserID\" INTEGER NOT NULL," +
+    "PRIMARY KEY(\"ID\" AUTOINCREMENT)"
         };
-
-        public List<Task> GetTasksByUserId(int userId)
-        {
-            List<Task> tasks = new List<Task>();
-
-            using (var connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT * FROM ToDoList WHERE UserID = @UserID";
-                using (var command = new SQLiteCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@UserID", userId);
-                    using (SQLiteDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Task task = new Task
-                            {
-                                Id = reader.GetInt32(0),
-                                Title = reader.GetString(1),
-                                Description = reader.GetString(2),
-                                IsCompleted = reader.GetBoolean(3)
-                            };
-                            tasks.Add(task);
-                        }
-                    }
-                }
-            }
-            return tasks;
-        }
 
         public static void MigrateDataBase()
         {
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                string migrationQuery = "CREATE TABLE IF NOT EXISTS \"ToDoList\" (" +
-                                        "\"ID\" INTEGER PRIMARY KEY AUTOINCREMENT," +
-                                        "\"Title\" TEXT NOT NULL," +
-                                        "\"Description\" TEXT," +
-                                        "\"IsCompleted\" INTEGER NOT NULL DEFAULT 0," +
-                                        "\"UserID\" INTEGER NOT NULL," +
-                                        "FOREIGN KEY(\"UserID\") REFERENCES \"Users\"(\"ID\")" +
-                                        ");";
-                using (var command = new SQLiteCommand(migrationQuery, connection))
+
+                foreach (var migration in migrationList)
                 {
-                    command.ExecuteNonQuery();
+                    using (var command = new SQLiteCommand(migration, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
                 }
+
             }
         }
 
-            public void Create(ToDoListLibrary.Task task, int userId)
-            {
+
+
+        public void Create(ToDoListLibrary.Task task)
+        {
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "INSERT INTO ToDoList (Title, Description, IsCompleted, UserID) VALUES (@Title, @Description, @IsCompleted, @UserID)";
+                string query = "INSERT INTO ToDoList (ID, Title, Description, IsCompleted) VALUES (@Id, @Title, @Description, @IsCompleted)";
                 using (var command = new SQLiteCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@Id", task.Id);
                     command.Parameters.AddWithValue("@Title", task.Title);
                     command.Parameters.AddWithValue("@Description", task.Description);
                     command.Parameters.AddWithValue("@IsCompleted", task.IsCompleted ? 1 : 0);
-                    command.Parameters.AddWithValue("@UserID", userId);
+                    command.Parameters.AddWithValue("@UserId", task.UserId);
                     command.ExecuteNonQuery();
                 }
             }
         }
-        public List<Task> ReadUserTasks(int userId)
-        {
-            List<Task> tasks = new List<Task>();
 
-            using (var connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT * FROM ToDoList WHERE UserID = @UserID";
-                using (var command = new SQLiteCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@UserID", userId);
-                    using (SQLiteDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Task task = new Task
-                            {
-                                Id = reader.GetInt32(0),
-                                Title = reader.GetString(1),
-                                Description = reader.GetString(2),
-                                IsCompleted = reader.GetBoolean(3)
-                            };
-                            tasks.Add(task);
-                        }
-                    }
-                }
-            }
-            return tasks;
-        }
-
-
-        public List<ToDoListLibrary.Task> ReadAllTasks()
+        public List<ToDoListLibrary.Task> ReadAllTasks(int userId)
         {
             List<ToDoListLibrary.Task> tasks = new List<ToDoListLibrary.Task>();
-
-            Console.WriteLine(System.IO.Directory.GetCurrentDirectory());
-
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-
-                string query = "SELECT * FROM ToDoList";
+                string query = "SELECT * FROM ToDoList WHERE UserId = @UserId";
                 using (var command = new SQLiteCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@UserId", userId);
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -158,15 +91,14 @@ namespace BD
                                 Id = reader.GetInt32(0),
                                 Title = reader.GetString(1),
                                 Description = reader.GetString(2),
-                                IsCompleted = reader.GetBoolean(3)
+                                IsCompleted = reader.GetBoolean(3),
+                                UserId = reader.GetInt32(0)
                             };
-
                             tasks.Add(task);
                         }
                     }
                 }
             }
-
             return tasks;
         }
 
@@ -176,13 +108,13 @@ namespace BD
             {
                 connection.Open();
 
-                string query = "UPDATE ToDoList SET Title = @Title, Description = @Description, IsCompleted = @IsCompleted WHERE Id = @Id";
+                string query = "UPDATE ToDoList SET Title = @Title, Description = @Description, IsCompleted = @IsCompleted WHERE UserId = @UserId";
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Title", task.Title);
                     command.Parameters.AddWithValue("@Description", task.Description);
                     command.Parameters.AddWithValue("@IsCompleted", task.IsCompleted);
-                    command.Parameters.AddWithValue("@Id", task.Id);
+                    command.Parameters.AddWithValue("@UserId", task.Id);
                     command.ExecuteNonQuery();
                 }
             }
@@ -194,14 +126,14 @@ namespace BD
             {
                 connection.Open();
 
-                string query = "DELETE FROM ToDoList WHERE Id = @Id";
+                string query = "DELETE FROM ToDoList WHERE UserId = @UserId";
                 using (var command = new SQLiteCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", taskId);
+                    command.Parameters.AddWithValue("@UserId", taskId);
                     command.ExecuteNonQuery();
                 }
             }
         }
-       
+
     }
 }
