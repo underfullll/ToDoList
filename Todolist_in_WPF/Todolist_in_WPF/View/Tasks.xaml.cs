@@ -20,12 +20,14 @@ namespace Todolist_in_WPF.View
         private ToDoListLibrary.Task selectedTaskForEdit;
         private int nextId = 1;
         private TaskRepository taskRepository;
+        private UserRepository UserRepository;
 
         public Tasks()
         {
             InitializeComponent();
             EnsureDataBase();
             taskRepository = new TaskRepository();
+            UserRepository = new UserRepository();
             LoadUserTasks();
         }
         private void LoadUserTasks()
@@ -51,6 +53,11 @@ namespace Todolist_in_WPF.View
                 TaskRepository.CreateDataBase();
                 TaskRepository.MigrateDataBase();
             }
+            if (!UserRepository.IsDatabaseExist())
+            {
+                UserRepository.CreateDataBase();
+                UserRepository.MigrateDataBase();
+            }
         }
 
         private void Button_Click_Add(object sender, RoutedEventArgs e)
@@ -61,7 +68,7 @@ namespace Todolist_in_WPF.View
             }
 
             int maxId = tasks.Any() ? tasks.Max(task => task.Id) : 0;
-            nextId = maxId + 1;
+            nextId += 1;
 
             ToDoListLibrary.Task newTask = new ToDoListLibrary.Task
             {
@@ -98,6 +105,8 @@ namespace Todolist_in_WPF.View
 
                 connection.Close();
             }
+
+            nextId = 1;
 
             RefreshDataGrid();
         }

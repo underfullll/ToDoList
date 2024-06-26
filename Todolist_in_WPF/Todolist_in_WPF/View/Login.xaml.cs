@@ -40,12 +40,8 @@ namespace Todolist_in_WPF.View
             {
                 MessageBox.Show("Login successful!");
 
-                // Получение задач для конкретного пользователя
                 TaskRepository taskRepository = new TaskRepository();
                 List<ToDoListLibrary.Task> userTasks = taskRepository.ReadAllTasks(user.UserId);
-
-                // Здесь вы можете использовать полученные задачи
-                // Например, можно их отобразить в вашем интерфейсе или выполнить другие действия
             }
             else
             {
@@ -55,6 +51,7 @@ namespace Todolist_in_WPF.View
 
         private void Registration_Button(object sender, RoutedEventArgs e)
         {
+            MainGrid.Children.Clear();
 
             Registration registrationControl = new Registration();
 
@@ -63,6 +60,11 @@ namespace Todolist_in_WPF.View
                 Grid.SetColumn(registrationControl, 1);
                 MainGrid.Children.Add(registrationControl);
             }
+
+        }
+
+        private void Button_Create_Image_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

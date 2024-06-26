@@ -30,7 +30,7 @@ namespace BD
     "\"Title\" TEXT," +
     "\"Description\"   TEXT," +
     "\"IsCompleted\"   INTEGER," +
-    "\"UserID\" INTEGER NOT NULL," +
+    "\"UserId\" INTEGER," +
     "PRIMARY KEY(\"ID\" AUTOINCREMENT)"
         };
 
@@ -51,18 +51,15 @@ namespace BD
             }
         }
 
-
-
         public void Create(ToDoListLibrary.Task task)
         {
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "INSERT INTO ToDoList (ID, Title, Description, IsCompleted) VALUES (@Id, @Title, @Description, @IsCompleted)";
+                string query = "INSERT INTO ToDoList (Title, Description, IsCompleted, UserId) VALUES (@Title, @Description, @IsCompleted, @UserId)";
                 using (var command = new SQLiteCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", task.Id);
                     command.Parameters.AddWithValue("@Title", task.Title);
                     command.Parameters.AddWithValue("@Description", task.Description);
                     command.Parameters.AddWithValue("@IsCompleted", task.IsCompleted ? 1 : 0);
@@ -108,13 +105,13 @@ namespace BD
             {
                 connection.Open();
 
-                string query = "UPDATE ToDoList SET Title = @Title, Description = @Description, IsCompleted = @IsCompleted WHERE UserId = @UserId";
+                string query = "UPDATE ToDoList SET Title = @Title, Description = @Description, IsCompleted = @IsCompleted WHERE ID = @Id";
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Title", task.Title);
                     command.Parameters.AddWithValue("@Description", task.Description);
                     command.Parameters.AddWithValue("@IsCompleted", task.IsCompleted);
-                    command.Parameters.AddWithValue("@UserId", task.Id);
+                    command.Parameters.AddWithValue("@Id", task.Id);
                     command.ExecuteNonQuery();
                 }
             }

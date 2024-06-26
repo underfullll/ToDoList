@@ -26,11 +26,13 @@ namespace BD.Repository
 
         static List<string> migrationList = new List<string>()
         {
-           "CREATE TABLE \"Users\" (" +
-    "\"UserId\"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-    "\"Username\" TEXT NOT NULL, " +
-    "\"Password\" TEXT NOT NULL, PRIMARY KEY(\"UserId\" AUTOINCREMENT)" +
-    ")"
+            "CREATE TABLE \"Users\" (" +
+            "\"UserId\"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+            "\"Username\" TEXT NOT NULL, " +
+            "\"Password\" TEXT NOT NULL,"+
+            "\"Image\"BLOB," +
+            "PRIMARY KEY(\"UserId\" AUTOINCREMENT)" +
+            ")"
         };
 
         public static void MigrateDataBase()
@@ -55,11 +57,12 @@ namespace BD.Repository
             {
                 connection.Open();
 
-                string query = "UPDATE Users SET Username = @Username, Password = @Password WHERE UserId = @UserId";
+                string query = "UPDATE Users SET Username = @Username, Password = @Password, Image = @Image WHERE UserId = @UserId";
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Username", user.Username);
                     command.Parameters.AddWithValue("@Password", user.Password);
+                    command.Parameters.AddWithValue("@Image", user.Image); 
                     command.Parameters.AddWithValue("@UserId", user.UserId);
                     command.ExecuteNonQuery();
                 }
@@ -108,11 +111,12 @@ namespace BD.Repository
             {
                 connection.Open();
 
-                string query = "INSERT INTO Users (Username, Password) VALUES (@Username, @Password)";
+                string query = "INSERT INTO Users (Username, Password, Image) VALUES (@Username, @Password, @Image)";
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Username", user.Username);
                     command.Parameters.AddWithValue("@Password", user.Password);
+                    command.Parameters.AddWithValue("@Image", user.Image); 
                     command.ExecuteNonQuery();
                 }
             }

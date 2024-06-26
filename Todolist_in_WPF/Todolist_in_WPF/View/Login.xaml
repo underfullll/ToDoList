@@ -88,7 +88,7 @@ Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
                         <ImageBrush ImageSource="/Source/None_Account.png" />
                     </Ellipse.Fill>
                 </Ellipse>
-                <Button Style="{StaticResource gridEditButon}" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button Style="{StaticResource gridEditButon}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Create_Image_Click">
                     <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
                 </Button>
             </Grid>

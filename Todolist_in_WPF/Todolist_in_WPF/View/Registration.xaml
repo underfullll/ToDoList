@@ -88,7 +88,7 @@ Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
 
 
         <!--  Menu Logo  -->
-        <Border Grid.Row="5"
+        <Border x:Name="MenuLogoBorder" Grid.Row="5"
         Width="80"
         Height="80"
         Margin="10,-400,0,0"
@@ -97,16 +97,25 @@ Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
         Background="White"
         CornerRadius="100">
             <Grid>
-                <Ellipse>
+                <Ellipse x:Name="MenuLogoEllipse">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="/Source/None_Account.png" />
+                        <ImageBrush x:Name="MenuLogoImageBrush" ImageSource="/Source/None_Account.png" />
                     </Ellipse.Fill>
                 </Ellipse>
-                <Button Style="{StaticResource gridEditButon}" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button Style="{StaticResource gridEditButon}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Create_Image_Click">
                     <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
                 </Button>
             </Grid>
         </Border>
+
+        <ComboBox Grid.Row="5" x:Name="ImageComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" SelectionChanged="ImageComboBox_SelectionChanged" Margin="88,109,0,0" >
+            <ComboBoxItem Content="None_Account" />
+            <ComboBoxItem Content="cute-bear-white" />
+            <ComboBoxItem Content="cute-rabbit-brown" />
+            <ComboBoxItem Content="cute-rabbit-white" />
+            <ComboBoxItem Content="cute-bear-gray" />
+            <ComboBoxItem Content="ute-kitty" />
+        </ComboBox>
 
 
         <!--  Deskription Tasks Textbox  -->

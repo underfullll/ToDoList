@@ -87,5 +87,47 @@ namespace Todolist_in_WPF.View
             MessageBox.Show("User is registered.");
 
         }
+
+        private void Button_Create_Image_Click(object sender, RoutedEventArgs e)
+        {
+
+            ComboBoxItem selectedItem = (ComboBoxItem)ImageComboBox.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                // Получить имя выбранного изображения
+                string imageName = selectedItem.Content.ToString();
+
+                // Формируем путь к выбранному изображению
+                string imagePath = "C:\\Users\\anton\\OneDrive\\Рабочий стол\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\Source\\" + imageName + ".png";
+
+                // Обновляем источник изображения у элемента Ellipse
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
+                MenuLogoEllipse.Fill = imageBrush;
+            }
+
+
+        }
+
+        private void ImageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem selectedItem = (ComboBoxItem)ImageComboBox.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                // Получить имя выбранного изображения
+                string imageName = selectedItem.Content.ToString();
+
+                // Формируем путь к выбранному изображению
+                string imagePath = "C:\\Users\\anton\\OneDrive\\Рабочий стол\\projects\\ToDoList\\Todolist_in_WPF\\Todolist_in_WPF\\Source\\" + imageName + ".png";
+
+                // Обновляем источник изображения у элемента Ellipse
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
+                MenuLogoEllipse.Fill = imageBrush;
+            }
+
+        }
     }
 }
