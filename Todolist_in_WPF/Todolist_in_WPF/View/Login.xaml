@@ -22,6 +22,56 @@ mc:Ignorable="d">
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <Border Grid.Row="5"
+        Width="200"
+        Height="200" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Grid>
+                <Ellipse >
+                    <Ellipse.Fill>
+                        <ImageBrush  ImageSource="/Source/cute-rabbit-white.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </Border>
+
+
+        <Border Grid.Row="5"
+Width="200"
+Height="200" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Grid>
+                <Ellipse >
+                    <Ellipse.Fill>
+                        <ImageBrush  ImageSource="/Source/cute-bear-gray.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </Border>
+
+
+        <Border Grid.Row="5"
+Width="200"
+Height="200" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Grid>
+                <Ellipse >
+                    <Ellipse.Fill>
+                        <ImageBrush  ImageSource="/Source/cute-rabbit-brown.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="5"
+Width="200"
+Height="200">
+            <Grid>
+                <Ellipse >
+                    <Ellipse.Fill>
+                        <ImageBrush  ImageSource="/Source/cute-bear-white.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </Border>
+
         <!--  Page Title  -->
         <TextBlock
     Grid.Row="1"
@@ -47,7 +97,7 @@ mc:Ignorable="d">
         <Button
     Margin="10,10,0,525"
     Grid.Row="5"
-    Style="{StaticResource registrationButon}" HorizontalAlignment="Left" Click="Registration_Button" >
+    Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Registration" />
             </StackPanel>

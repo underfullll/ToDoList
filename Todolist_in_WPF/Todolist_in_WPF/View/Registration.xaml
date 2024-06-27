@@ -102,20 +102,70 @@ Style="{StaticResource registrationButon}" HorizontalAlignment="Left" >
                         <ImageBrush x:Name="MenuLogoImageBrush" ImageSource="/Source/None_Account.png" />
                     </Ellipse.Fill>
                 </Ellipse>
-                <Button Style="{StaticResource gridEditButon}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Create_Image_Click">
+                <Button Style="{StaticResource gridEditButon}" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
                     <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}" />
                 </Button>
             </Grid>
         </Border>
 
-        <ComboBox Grid.Row="5" x:Name="ImageComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" SelectionChanged="ImageComboBox_SelectionChanged" Margin="88,109,0,0" >
+        <Border Grid.Row="5"
+        Width="200"
+        Height="200" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Grid>
+                <Ellipse >
+                    <Ellipse.Fill>
+                        <ImageBrush  ImageSource="/Source/cute-rabbit-white.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </Border>
+        
+        
+        <Border Grid.Row="5"
+Width="200"
+Height="200" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Grid>
+                <Ellipse >
+                    <Ellipse.Fill>
+                        <ImageBrush  ImageSource="/Source/cute-bear-gray.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </Border>
+        
+        
+        <Border Grid.Row="5"
+Width="200"
+Height="200" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Grid>
+                <Ellipse >
+                    <Ellipse.Fill>
+                        <ImageBrush  ImageSource="/Source/cute-rabbit-brown.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="5"
+Width="200"
+Height="200">
+            <Grid>
+                <Ellipse >
+                    <Ellipse.Fill>
+                        <ImageBrush  ImageSource="/Source/cute-bear-white.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Grid>
+        </Border>
+
+        <!--<ComboBox Style="{StaticResource ComboBox}" Grid.Row="5" x:Name="ImageComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" SelectionChanged="ImageComboBox_SelectionChanged" Margin="88,109,0,0" >
             <ComboBoxItem Content="None_Account" />
             <ComboBoxItem Content="cute-bear-white" />
             <ComboBoxItem Content="cute-rabbit-brown" />
             <ComboBoxItem Content="cute-rabbit-white" />
             <ComboBoxItem Content="cute-bear-gray" />
             <ComboBoxItem Content="ute-kitty" />
-        </ComboBox>
+        </ComboBox>-->
 
 
         <!--  Deskription Tasks Textbox  -->

@@ -49,20 +49,6 @@ namespace Todolist_in_WPF.View
             }
         }
 
-        private void Registration_Button(object sender, RoutedEventArgs e)
-        {
-            MainGrid.Children.Clear();
-
-            Registration registrationControl = new Registration();
-
-            if (MainGrid != null)
-            {
-                Grid.SetColumn(registrationControl, 1);
-                MainGrid.Children.Add(registrationControl);
-            }
-
-        }
-
         private void Button_Create_Image_Click(object sender, RoutedEventArgs e)
         {
 

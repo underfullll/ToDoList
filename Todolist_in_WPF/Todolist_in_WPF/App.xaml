@@ -233,6 +233,34 @@
             </Setter>
         </Style>
 
+        <Style
+    x:Key="ComboBox"
+    TargetType="ComboBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="ScrollViewer.HorizontalAlignment" Value="Center"/>
+            <Setter Property="ScrollViewer.VerticalAlignment" Value="Center"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="bold"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="MinWidth" Value="32"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton>
+
+                            </ToggleButton>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="addButon" TargetType="Button">
             <Setter Property="Background" Value="White" />
             <Setter Property="Foreground" Value="Black" />
